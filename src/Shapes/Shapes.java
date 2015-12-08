@@ -26,7 +26,7 @@ public abstract class Shapes extends JComponent{
     private int penSize;
     private double lengths;
     private double widths;
-    private boolean selected;
+    private boolean selected=false;
     private Shape thisShape;
     private ArrayList<Rectangle2D> resizePoints= new ArrayList();
     public boolean isSelected() {

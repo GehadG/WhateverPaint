@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import Shapes.Selector;
+        
 
 /**
  *
@@ -80,9 +82,16 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+        if(!(s instanceof Selector))
+        {
       prevShapes.add(s);
         
+    }
+        else
+        {
+            ((Selector)s).select();
+            repaint();
+        }
     }
 
     @Override
