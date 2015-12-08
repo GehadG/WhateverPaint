@@ -23,7 +23,7 @@ public class Square extends Rectangle {
     
     @Override
     public void drawShape(Graphics g) {
-        super.drawShape(g);
+        
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(getColor());
         g2.setStroke(new BasicStroke(getPenSize()));

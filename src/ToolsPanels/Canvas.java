@@ -39,6 +39,7 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
         Canvas.s = s;
     }
     public static ArrayList<Shapes> prevShapes = new ArrayList();
+    public static ArrayList<Shapes> selectShapes = new ArrayList();
     
     private static int stroke;
     private static Color color;
@@ -60,7 +61,13 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
             ss.drawShape(g);
         }
         
-        s.drawShape(g);
+          s.drawShape(g);
+          for(Shapes ss : selectShapes)
+              
+        {
+            ss.drawBound(g);
+        }
+          System.out.println(selectShapes.size());
 
     }
     
@@ -89,7 +96,7 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
     }
         else
         {
-            ((Selector)s).select();
+            
             repaint();
         }
     }

@@ -249,11 +249,13 @@ public   JButton old;
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         Canvas.setShape(new Selector());
+       
         old=selectButton;
     }//GEN-LAST:event_selectButtonActionPerformed
 
     private void sqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sqButtonActionPerformed
         Canvas.setShape(new Square());
+        
         old=sqButton;
     }//GEN-LAST:event_sqButtonActionPerformed
 
