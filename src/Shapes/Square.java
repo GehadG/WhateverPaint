@@ -27,11 +27,8 @@ public class Square extends Rectangle {
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(getColor());
         g2.setStroke(new BasicStroke(getPenSize()));
-        
-        rect.setRect(getxPos(), getyPos(), getWidths(), getWidths());
+        rect.setRect(Math.min(getMouseDraggedx(), getMousePressedx()),Math.min(getMouseDraggedy(), getMousePressedy()),Math.abs(getMouseDraggedx()-getMousePressedx()),Math.abs(getMouseDraggedx()-getMousePressedx()));
         g2.draw(rect);
-        
-        
     }
     
 }

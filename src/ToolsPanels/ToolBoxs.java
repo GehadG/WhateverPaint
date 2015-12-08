@@ -34,6 +34,14 @@ public   JButton old;
         stroker.setLabelTable(labels);
         stroker.setValue(0);
         old=freeHand;
+        rect.setToolTipText("Rectangle");
+        sqButton.setToolTipText("Square");
+        ellipse.setToolTipText("Ellipse");
+        circle.setToolTipText("Circle");
+        rightTrig.setToolTipText("Right Angled Triangle");
+        isoTrig.setToolTipText("Isoceles Angled Triangle");
+        line.setToolTipText("Line");
+        freeHand.setToolTipText("Free Hand");
     }
 
     /**

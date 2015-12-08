@@ -81,6 +81,8 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
     public void mousePressed(MouseEvent e) {
       s.setxPos(e.getX());
       s.setyPos(e.getY());
+      s.setMousePressedx(e.getX());
+      s.setMousePressedy(e.getY());
       s.setColor(color);
       s.setPenSize(stroke);
       
@@ -114,7 +116,8 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
     @Override
     public void mouseDragged(MouseEvent e) {
         MainWindow.setPosition("Mouse Position :"+e.getX()+","+e.getY());
-        
+        s.setMouseDraggedx(e.getX());
+        s.setMouseDraggedy(e.getY());
         if(s instanceof FreeHand)
         {s.setPoint(e.getPoint());
          

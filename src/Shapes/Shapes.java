@@ -28,6 +28,10 @@ public abstract class Shapes extends JComponent{
     private double widths;
     private boolean selected=false;
     private Shape thisShape;
+    private int mouseDraggedx;
+    private int mouseDraggedy;
+    private int mousePressedx;
+    private int mousePressedy;
     private ArrayList<Rectangle2D> resizePoints= new ArrayList();
     public boolean isSelected() {
         return selected;
@@ -123,6 +127,38 @@ public abstract class Shapes extends JComponent{
          drawBoundPoint((int)bound.getMaxX(),(int)bound.getMaxY(), g);
          
      }
+
+    public int getMouseDraggedx() {
+        return mouseDraggedx;
+    }
+
+    public void setMouseDraggedx(int mouseDraggedx) {
+        this.mouseDraggedx = mouseDraggedx;
+    }
+
+    public int getMouseDraggedy() {
+        return mouseDraggedy;
+    }
+
+    public void setMouseDraggedy(int mouseDraggedy) {
+        this.mouseDraggedy = mouseDraggedy;
+    }
+
+    public int getMousePressedx() {
+        return mousePressedx;
+    }
+
+    public void setMousePressedx(int mousePressedx) {
+        this.mousePressedx = mousePressedx;
+    }
+
+    public int getMousePressedy() {
+        return mousePressedy;
+    }
+
+    public void setMousePressedy(int mousePressedy) {
+        this.mousePressedy = mousePressedy;
+    }
      
      
   
