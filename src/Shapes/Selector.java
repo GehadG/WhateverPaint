@@ -22,6 +22,11 @@ import java.awt.geom.Rectangle2D;
  */
 public class Selector extends Shapes {
  private Rectangle2D rect = new Rectangle2D.Double();
+
+    public Selector() {
+        Canvas.selectShapes.clear();
+    }
+ 
     @Override
     public void drawShape(Graphics g) {
         float dash1[] = { 10.0f };
@@ -36,21 +41,27 @@ public class Selector extends Shapes {
          g2.setColor(new Color(0,191,243));
          g2.fill(rect);
          g2.setComposite(AlphaComposite.SrcOver);
+         select(g2);
         
     }
-    public void select()
+    public void select(Graphics2D g)
     {Rectangle2D checker = new Rectangle2D.Double();
+    
         for(Shapes s: Canvas.prevShapes)
         {
            checker=s.getThisShape().getBounds2D();
-           if(rect.contains(checker))
+           if(rect.contains(checker)){
                s.setSelected(true);
+               s.drawBound(g);
+              Canvas.selectShapes.add(s);
+           }
            else
                s.setSelected(false);
            
-            System.out.println(s.isSelected());
+           
             
         }
+        
     }
     
 }
