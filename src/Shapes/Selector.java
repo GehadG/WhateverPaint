@@ -2,6 +2,7 @@ package Shapes;
 
 
 import Shapes.Shapes;
+import ToolsPanels.Canvas;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -34,7 +35,22 @@ public class Selector extends Shapes {
         g2.draw(rect); 
          g2.setColor(new Color(0,191,243));
          g2.fill(rect);
+         g2.setComposite(AlphaComposite.SrcOver);
         
+    }
+    public void select()
+    {Rectangle2D checker = new Rectangle2D.Double();
+        for(Shapes s: Canvas.prevShapes)
+        {
+           checker=s.getThisShape().getBounds2D();
+           if(rect.contains(checker))
+               s.setSelected(true);
+           else
+               s.setSelected(false);
+           
+            System.out.println(s.isSelected());
+            
+        }
     }
     
 }

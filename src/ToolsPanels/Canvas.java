@@ -80,6 +80,7 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        
       prevShapes.add(s);
         
     }
@@ -97,6 +98,7 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
     @Override
     public void mouseDragged(MouseEvent e) {
         MainWindow.setPosition("Mouse Position :"+e.getX()+","+e.getY());
+        
         if(s instanceof FreeHand)
         {s.setPoint(e.getPoint());
          
