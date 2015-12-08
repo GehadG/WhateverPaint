@@ -5,6 +5,7 @@
  */
 package ToolsPanels;
 
+import Shapes.Selector;
 import Shapes.Square;
 import Shapes.Circle;
 import Shapes.RightTriangle;
@@ -45,7 +46,6 @@ public   JButton old;
     private void initComponents() {
 
         rect = new javax.swing.JButton();
-        square = new javax.swing.JButton();
         ellipse = new javax.swing.JButton();
         circle = new javax.swing.JButton();
         freeHand = new javax.swing.JButton();
@@ -55,6 +55,8 @@ public   JButton old;
         stroker = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        selectButton = new javax.swing.JButton();
+        sqButton = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setMaximumSize(new java.awt.Dimension(205, 164));
@@ -65,13 +67,6 @@ public   JButton old;
         rect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rectActionPerformed(evt);
-            }
-        });
-
-        square.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-square.png"))); // NOI18N
-        square.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                squareActionPerformed(evt);
             }
         });
 
@@ -133,6 +128,20 @@ public   JButton old;
 
         jLabel2.setText("Tool Box");
 
+        selectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/select-rectangular.png"))); // NOI18N
+        selectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectButtonActionPerformed(evt);
+            }
+        });
+
+        sqButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-square.png"))); // NOI18N
+        sqButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sqButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,9 +156,9 @@ public   JButton old;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(rect, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(square, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sqButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
                                 .addComponent(ellipse, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(circle, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,7 +169,8 @@ public   JButton old;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(line, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(freeHand, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(freeHand, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(selectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(stroker, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,21 +185,25 @@ public   JButton old;
                 .addGap(4, 4, 4)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rect)
-                    .addComponent(square)
-                    .addComponent(ellipse)
-                    .addComponent(circle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rightTrig)
-                    .addComponent(isoTrig)
-                    .addComponent(line)
-                    .addComponent(freeHand))
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(stroker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rect)
+                            .addComponent(ellipse)
+                            .addComponent(circle))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rightTrig)
+                            .addComponent(isoTrig)
+                            .addComponent(line)
+                            .addComponent(freeHand))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(selectButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(stroker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sqButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -198,11 +212,6 @@ public   JButton old;
         Canvas.setShape(new Rectangle());
         old=rect;
     }//GEN-LAST:event_rectActionPerformed
-
-    private void squareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_squareActionPerformed
-        Canvas.setShape(new Square());
-        old=square;
-    }//GEN-LAST:event_squareActionPerformed
 
     private void ellipseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ellipseActionPerformed
         Canvas.setShape(new Ellipse());
@@ -238,6 +247,16 @@ public   JButton old;
         Canvas.setStroke(stroker.getValue()+1);
     }//GEN-LAST:event_strokerStateChanged
 
+    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
+        Canvas.setShape(new Selector());
+        old=selectButton;
+    }//GEN-LAST:event_selectButtonActionPerformed
+
+    private void sqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sqButtonActionPerformed
+        Canvas.setShape(new Square());
+        old=sqButton;
+    }//GEN-LAST:event_sqButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton circle;
@@ -249,7 +268,8 @@ public   JButton old;
     private javax.swing.JButton line;
     private javax.swing.JButton rect;
     private javax.swing.JButton rightTrig;
-    private javax.swing.JButton square;
+    private javax.swing.JButton selectButton;
+    private javax.swing.JButton sqButton;
     private javax.swing.JSlider stroker;
     // End of variables declaration//GEN-END:variables
 }

@@ -43,9 +43,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="rect" min="-2" pref="26" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="square" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="sqButton" min="-2" pref="26" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="ellipse" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="circle" min="-2" pref="26" max="-2" attributes="0"/>
@@ -59,6 +59,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="freeHand" min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="selectButton" min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -80,23 +81,29 @@
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rect" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="square" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ellipse" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="circle" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="rect" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ellipse" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="circle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="rightTrig" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="isoTrig" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="line" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="freeHand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="selectButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="stroker" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="sqButton" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rightTrig" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="isoTrig" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="line" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="freeHand" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="stroker" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -111,16 +118,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rectActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="square">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Resources/draw-square.png"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="squareActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="ellipse">
@@ -205,6 +202,26 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Tool Box"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="selectButton">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/select-rectangular.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="sqButton">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/draw-square.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sqButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

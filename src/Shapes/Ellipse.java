@@ -18,6 +18,10 @@ import java.awt.geom.Ellipse2D;
  */
 public class Ellipse extends Shapes {
     protected Ellipse2D ellipse = new Ellipse2D.Double();
+
+    public Ellipse() {
+        setThisShape(ellipse);
+    }
     
     
     
@@ -25,16 +29,15 @@ public class Ellipse extends Shapes {
 
     @Override
     public void drawShape(Graphics g) {
+        
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(getColor());
         g2.setStroke(new BasicStroke(getPenSize()));
         ellipse.setFrame(getxPos(), getyPos(), getWidths(), getLengths());
         g2.draw(ellipse);
+        
     }
 
-    @Override
-    public boolean containsPoint(Point p) {
-        return ellipse.contains(p);
-    }
+    
     
 }

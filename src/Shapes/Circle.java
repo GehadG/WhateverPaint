@@ -14,14 +14,21 @@ import java.awt.Graphics2D;
  * @author Gehad
  */
 public class Circle extends Ellipse{
+
+    public Circle() {
+        super();
+    }
+    
     
      @Override
     public void drawShape(Graphics g) {
+        super.drawShape(g);
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(getColor());
         g2.setStroke(new BasicStroke(getPenSize()));
         ellipse.setFrame(getxPos(), getyPos(), getWidths(), getWidths());
         g2.draw(ellipse);
+        
     }
    
     

@@ -17,22 +17,24 @@ import java.awt.geom.Line2D;
  */
 public class Line extends Shapes {
  private Line2D line = new Line2D.Double();   
+
+    public Line() {
+        setThisShape(line);
+    }
     
 
     @Override
     public void drawShape(Graphics g) {
+        
          Graphics2D g2 = (Graphics2D) g;
         g2.setColor(getColor());
         g2.setStroke(new BasicStroke(getPenSize()));
         line.setLine(getxPos(), getyPos(), getWidths(), getLengths());
         g2.draw(line);
         
+        
     }
 
-    @Override
-    public boolean containsPoint(Point p) {
-       return line.contains(p);
-    }
     
     
     

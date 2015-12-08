@@ -9,21 +9,28 @@ import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+
 /**
  *
  * @author Gehad
  */
 public class Square extends Rectangle {
+
+    public Square() {
+        super();
+    }
     
     
     @Override
     public void drawShape(Graphics g) {
+        super.drawShape(g);
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(getColor());
         g2.setStroke(new BasicStroke(getPenSize()));
         
         rect.setRect(getxPos(), getyPos(), getWidths(), getWidths());
         g2.draw(rect);
+        
         
     }
     

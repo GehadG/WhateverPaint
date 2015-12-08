@@ -36,8 +36,8 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
     public static void setShape(Shapes s) {
         Canvas.s = s;
     }
-    private static ArrayList<Shapes> prevShapes = new ArrayList();
-   
+    public static ArrayList<Shapes> prevShapes = new ArrayList();
+    
     private static int stroke;
     private static Color color;
     public Canvas() {
@@ -57,13 +57,14 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
         {
             ss.drawShape(g);
         }
+        
         s.drawShape(g);
- 
+
     }
     
     @Override
     public void mouseClicked(MouseEvent e) {
-       
+      
        
     }
 
@@ -73,6 +74,7 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
       s.setyPos(e.getY());
       s.setColor(color);
       s.setPenSize(stroke);
+      
       
     }
 

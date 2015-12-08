@@ -12,20 +12,25 @@ import java.awt.geom.Rectangle2D;
  * @author Gehad
  */
 public class Rectangle extends Shapes{
+    
     protected Rectangle2D rect = new Rectangle2D.Double();
+
+    public Rectangle() {
+        setThisShape(rect);
+    }
 
     @Override
     public void drawShape(Graphics g) {
+        
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(getColor());
         g2.setStroke(new BasicStroke(getPenSize()));
         rect.setRect(getxPos(), getyPos(), getWidths(), getLengths());
-        g2.draw(rect);    
+        g2.draw(rect); 
+        
+        
     }
 
-    @Override
-    public boolean containsPoint(Point p) {
-        return rect.contains(p);
-    }
+    
     
 }
