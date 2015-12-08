@@ -26,13 +26,13 @@ public class ToolBoxs extends javax.swing.JPanel {
 public   JButton old;
     public ToolBoxs() {
         initComponents();
-         Hashtable<Integer,JLabel> labels = new Hashtable();
+        Hashtable<Integer,JLabel> labels = new Hashtable();
         labels.put(0,new JLabel("0"));
         labels.put(10,new JLabel("10"));
         labels.put(20,new JLabel("20"));
         stroker.setLabelTable(labels);
         stroker.setValue(0);
-        old=rect;
+        old=freeHand;
     }
 
     /**

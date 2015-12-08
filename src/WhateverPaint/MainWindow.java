@@ -3,9 +3,11 @@ package WhateverPaint;
 
 import ToolsPanels.Canvas;
 import java.util.Hashtable;
+import java.util.Stack;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
+import Shapes.Shapes;
+import java.util.ArrayList;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,7 +20,11 @@ import javax.swing.JLabel;
  */
 public class MainWindow extends javax.swing.JFrame {
 
-
+    
+    private Stack <Shapes> redoo;
+    private Shapes temp1;
+    private Shapes temp2;
+    private ArrayList<Shapes> prevShapes2 = new ArrayList();
     public static void setPosition(String position) {
         mousePos.setText(position);
     }
@@ -28,7 +34,7 @@ public class MainWindow extends javax.swing.JFrame {
   
     public MainWindow() {
         initComponents();
-       
+        this.redoo = new Stack();
         
     }
 
@@ -63,6 +69,9 @@ public class MainWindow extends javax.swing.JFrame {
         mousePos = new javax.swing.JLabel();
         colorChooser1 = new ToolsPanels.ColorChooser();
         toolBox = new ToolsPanels.ToolBoxs();
+        undo = new javax.swing.JButton();
+        redo = new javax.swing.JButton();
+        clear = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -220,6 +229,27 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(mousePos))
         );
 
+        undo.setText("Undo");
+        undo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                undoActionPerformed(evt);
+            }
+        });
+
+        redo.setText("Redo");
+        redo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                redoActionPerformed(evt);
+            }
+        });
+
+        clear.setText("Clear");
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
@@ -235,16 +265,30 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(MousePositioner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(colorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(toolBox, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(colorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toolBox, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(undo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(redo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(undo)
+                    .addComponent(redo)
+                    .addComponent(clear))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -264,6 +308,31 @@ public class MainWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_canvas1MouseReleased
 
+    private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
+      if (!Canvas.getPrevShapes().isEmpty()){
+          prevShapes2 = Canvas.getPrevShapes();
+          temp1 = prevShapes2.get(prevShapes2.size()-1);
+          redoo.push(temp1);
+          System.out.println(prevShapes2.size());
+          prevShapes2.remove(prevShapes2.size()-1);
+          Canvas.setPrevShapes(prevShapes2);
+          repaint();
+      }        
+    }//GEN-LAST:event_undoActionPerformed
+
+    private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
+        temp2 = redoo.pop();
+        prevShapes2.add(temp2);
+        Canvas.setPrevShapes(prevShapes2);
+        repaint();
+    }//GEN-LAST:event_redoActionPerformed
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        prevShapes2 = new ArrayList();
+        Canvas.setPrevShapes(prevShapes2);
+        repaint();
+    }//GEN-LAST:event_clearActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -302,6 +371,7 @@ public class MainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MousePositioner;
     private ToolsPanels.Canvas canvas1;
+    private javax.swing.JButton clear;
     private ToolsPanels.ColorChooser colorChooser1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -323,7 +393,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private static javax.swing.JLabel mousePos;
+    private javax.swing.JButton redo;
     private javax.swing.JSlider stroke;
     private ToolsPanels.ToolBoxs toolBox;
+    private javax.swing.JButton undo;
     // End of variables declaration//GEN-END:variables
 }

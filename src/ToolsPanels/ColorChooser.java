@@ -20,9 +20,9 @@ import java.util.logging.Logger;
 public class ColorChooser extends javax.swing.JPanel {
     private Color ignorer;
     private Point coord;
-     private  Robot robot = null;
-      private Color color;
-     private Color currently;
+    private Robot robot = null;
+    private Color color;
+    private Color currently;
  
     public ColorChooser() {
         initComponents();
@@ -137,7 +137,7 @@ public class ColorChooser extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void colorWheelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_colorWheelMouseMoved
-       coord = MouseInfo.getPointerInfo().getLocation();
+         coord = MouseInfo.getPointerInfo().getLocation();
          color = robot.getPixelColor(coord.x, coord.y);
          
          if(color.equals(ignorer))
@@ -151,7 +151,7 @@ public class ColorChooser extends javax.swing.JPanel {
     }//GEN-LAST:event_colorWheelMouseMoved
 
     private void colorWheelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_colorWheelMouseClicked
-       coord = MouseInfo.getPointerInfo().getLocation();
+         coord = MouseInfo.getPointerInfo().getLocation();
          color = robot.getPixelColor(coord.x, coord.y);
          currently= color;
          Canvas.setColor(currently);
@@ -159,7 +159,7 @@ public class ColorChooser extends javax.swing.JPanel {
     }//GEN-LAST:event_colorWheelMouseClicked
 
     private void colorStripMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_colorStripMouseMoved
-            coord = MouseInfo.getPointerInfo().getLocation();
+         coord = MouseInfo.getPointerInfo().getLocation();
          color = robot.getPixelColor(coord.x, coord.y);
          
          if(color.equals(ignorer))

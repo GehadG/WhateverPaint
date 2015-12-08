@@ -29,14 +29,14 @@ import javax.swing.JPanel;
  */
 public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
     
-    private static Shapes s = new Rectangle();
-Point coord;
+    private static Shapes s = new FreeHand();
+      Point coord;
       Robot robot = null;
 
     public static void setShape(Shapes s) {
         Canvas.s = s;
     }
-    private ArrayList<Shapes> prevShapes = new ArrayList();
+    private static ArrayList<Shapes> prevShapes = new ArrayList();
    
     private static int stroke;
     private static Color color;
@@ -129,6 +129,14 @@ Point coord;
 
     public static void setColor(Color color) {
         Canvas.color = color;
+    }
+
+    public static ArrayList<Shapes> getPrevShapes() {
+        return prevShapes;
+    }
+
+    public static void setPrevShapes(ArrayList<Shapes> prevShapes) {
+        Canvas.prevShapes = prevShapes;
     }
 
     
