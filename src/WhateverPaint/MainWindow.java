@@ -24,6 +24,8 @@ public class MainWindow extends javax.swing.JFrame {
     private Stack <Shapes> redoo;
     private Shapes temp1;
     private Shapes temp2;
+    private int flag1=0;
+    private int flag2=0;
     private ArrayList<Shapes> prevShapes2 = new ArrayList();
     public static void setPosition(String position) {
         mousePos.setText(position);
@@ -35,6 +37,8 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         this.redoo = new Stack();
+        redo.setEnabled(false);
+        undo.setEnabled(false);
         
     }
 
@@ -305,32 +309,48 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void canvas1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseReleased
        toolBox.old.doClick();
-        
+        undo.setEnabled(true);
     }//GEN-LAST:event_canvas1MouseReleased
 
     private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
-      if (!Canvas.getPrevShapes().isEmpty()){
+         
+        if (!Canvas.getPrevShapes().isEmpty()){
+          undo.setEnabled(true);
+          flag1++;
           prevShapes2 = Canvas.getPrevShapes();
           temp1 = prevShapes2.get(prevShapes2.size()-1);
           redoo.push(temp1);
-          System.out.println(prevShapes2.size());
           prevShapes2.remove(prevShapes2.size()-1);
+          System.out.println(prevShapes2.size());
           Canvas.setPrevShapes(prevShapes2);
           repaint();
-      }        
+          redo.setEnabled(true);
+          
+      } if (prevShapes2.size()==0) 
+        {undo.setEnabled(false);
+        }
+        
     }//GEN-LAST:event_undoActionPerformed
 
     private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
         temp2 = redoo.pop();
         prevShapes2.add(temp2);
+        undo.setEnabled(true);
         Canvas.setPrevShapes(prevShapes2);
+        flag2++;
         repaint();
+        System.out.println(prevShapes2.size());
+        if (flag1==flag2){
+            redo.setEnabled(false);
+        }
     }//GEN-LAST:event_redoActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         prevShapes2 = new ArrayList();
         Canvas.setPrevShapes(prevShapes2);
         repaint();
+        undo.setEnabled(false);
+        redo.setEnabled(false);
     }//GEN-LAST:event_clearActionPerformed
     
     /**
