@@ -21,10 +21,10 @@ import javax.swing.JLabel;
  *
  * @author Gehad
  */
-public class ToolBox extends javax.swing.JPanel {
+public class ToolBoxs extends javax.swing.JPanel {
 
 public   JButton old;
-    public ToolBox() {
+    public ToolBoxs() {
         initComponents();
          Hashtable<Integer,JLabel> labels = new Hashtable();
         labels.put(0,new JLabel("0"));
@@ -52,10 +52,6 @@ public   JButton old;
         line = new javax.swing.JButton();
         isoTrig = new javax.swing.JButton();
         rightTrig = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
         stroker = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -65,74 +61,61 @@ public   JButton old;
         setMinimumSize(new java.awt.Dimension(205, 164));
         setPreferredSize(new java.awt.Dimension(205, 164));
 
-        rect.setText("jButton1");
+        rect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-rectangle.png"))); // NOI18N
         rect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rectActionPerformed(evt);
             }
         });
 
-        square.setText("jButton1");
+        square.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-square.png"))); // NOI18N
         square.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 squareActionPerformed(evt);
             }
         });
 
-        ellipse.setText("jButton1");
+        ellipse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-ellipse.png"))); // NOI18N
         ellipse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ellipseActionPerformed(evt);
             }
         });
 
-        circle.setText("jButton1");
+        circle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-circle.png"))); // NOI18N
         circle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 circleActionPerformed(evt);
             }
         });
 
-        freeHand.setText("jButton1");
+        freeHand.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-freehand.png"))); // NOI18N
         freeHand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 freeHandActionPerformed(evt);
             }
         });
 
-        line.setText("jButton1");
+        line.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-line.png"))); // NOI18N
         line.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lineActionPerformed(evt);
             }
         });
 
-        isoTrig.setText("jButton1");
+        isoTrig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-triangle3.png"))); // NOI18N
         isoTrig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 isoTrigActionPerformed(evt);
             }
         });
 
-        rightTrig.setText("jButton1");
+        rightTrig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-triangle.png"))); // NOI18N
         rightTrig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rightTrigActionPerformed(evt);
             }
         });
-
-        jButton25.setText("jButton1");
-        jButton25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton25ActionPerformed(evt);
-            }
-        });
-
-        jButton26.setText("jButton1");
-
-        jButton27.setText("jButton1");
-
-        jButton24.setText("jButton1");
 
         stroker.setMaximum(20);
         stroker.setMinorTickSpacing(1);
@@ -177,15 +160,7 @@ public   JButton old;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(line, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(freeHand, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(freeHand, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(stroker, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -211,17 +186,11 @@ public   JButton old;
                     .addComponent(isoTrig)
                     .addComponent(line)
                     .addComponent(freeHand))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton25)
-                    .addComponent(jButton26)
-                    .addComponent(jButton27)
-                    .addComponent(jButton24))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(stroker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -265,10 +234,6 @@ public   JButton old;
         old=rightTrig;
     }//GEN-LAST:event_rightTrigActionPerformed
 
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton25ActionPerformed
-
     private void strokerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_strokerStateChanged
         Canvas.setStroke(stroker.getValue()+1);
     }//GEN-LAST:event_strokerStateChanged
@@ -279,10 +244,6 @@ public   JButton old;
     private javax.swing.JButton ellipse;
     private javax.swing.JButton freeHand;
     private javax.swing.JButton isoTrig;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton line;

@@ -59,15 +59,6 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="freeHand" min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton25" min="-2" pref="26" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="jButton26" min="-2" pref="26" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton27" min="-2" pref="26" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton24" min="-2" pref="26" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -102,18 +93,11 @@
                   <Component id="line" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="freeHand" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton25" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton26" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton27" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton24" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="stroker" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -121,7 +105,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="rect">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/draw-rectangle.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rectActionPerformed"/>
@@ -129,7 +115,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="square">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/draw-square.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="squareActionPerformed"/>
@@ -137,7 +125,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="ellipse">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/draw-ellipse.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ellipseActionPerformed"/>
@@ -145,7 +135,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="circle">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/draw-circle.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="circleActionPerformed"/>
@@ -153,7 +145,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="freeHand">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/draw-freehand.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="freeHandActionPerformed"/>
@@ -161,7 +155,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="line">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/draw-line.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lineActionPerformed"/>
@@ -169,7 +165,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="isoTrig">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/draw-triangle3.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="isoTrigActionPerformed"/>
@@ -177,34 +175,13 @@
     </Component>
     <Component class="javax.swing.JButton" name="rightTrig">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/draw-triangle.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rightTrigActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton25">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton25ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton26">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton27">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton24">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="stroker">
       <Properties>
