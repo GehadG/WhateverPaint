@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package Shapes;
-
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -13,28 +14,21 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
 
-/**
- *
- * @author Gehad
- */
-public class FreeHand extends Shapes {
-    protected ArrayList<Point> points = new ArrayList();
-    protected int minX=1000;
-    protected int minY=1000;
-    protected int maxX=0;
-    protected int maxY=0;
 
-    
-   
+public class Eraser extends FreeHand {
+
+    public Eraser() {
+        
+    }
     
     @Override
     public void drawShape(Graphics g) {
         
        Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(getColor());
+        g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(getPenSize()));
-        
-           if(points.size()>1)
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_IN, 0.0f));
+            if(points.size()>1)
            {
                for(int i=0;i<points.size()-1;i++)
                {
@@ -60,21 +54,11 @@ public class FreeHand extends Shapes {
           Rectangle2D bound = new Rectangle2D.Double();
           bound.setFrame(minX, minY, maxX-minX, maxY-minY);
           setThisShape(bound);
-          if(isSelected())
-            drawBound(g);
-          
-        
+          g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
+    }
         
     }
+    
+    
+    
 
-    @Override
-    public void setPoint(Point p) {
-        points.add(p);
-        
-    }
-
-   
-    
-    
-    
-}

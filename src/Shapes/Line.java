@@ -31,6 +31,8 @@ public class Line extends Shapes {
         g2.setStroke(new BasicStroke(getPenSize()));
         line.setLine(getxPos(), getyPos(), getWidths(), getLengths());
         g2.draw(line);
+        if(isSelected())
+            drawBound(g);
         
         
     }

@@ -22,7 +22,7 @@ public class RightTriangle extends Shapes {
     private Polygon triangle;
 
     public RightTriangle() {
-        setThisShape(triangle);
+        
     }
 
     @Override
@@ -39,6 +39,9 @@ public class RightTriangle extends Shapes {
         g2.setStroke(new BasicStroke(getPenSize()));
         triangle = new Polygon(new int[]{x1, x2, x3}, new int[]{y1, y2, y3}, 3);
         g2.draw(triangle);
+        setThisShape(triangle.getBounds2D());
+        if(isSelected())
+            drawBound(g2);
         
     }
 

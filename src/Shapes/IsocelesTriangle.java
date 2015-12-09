@@ -20,7 +20,7 @@ private int x1,x2,x3,y1,y2,y3;
     private Polygon triangle;
 
     public IsocelesTriangle() {
-        setThisShape(triangle);
+        
     }
     
 
@@ -39,6 +39,9 @@ private int x1,x2,x3,y1,y2,y3;
         g2.setStroke(new BasicStroke(getPenSize()));
         triangle=new Polygon(new int[]{x1,x2,x3},new int[]{y1,y2,y3},3);
         g2.draw(triangle);
+        setThisShape(triangle.getBounds2D());
+        if(isSelected())
+            drawBound(g);
         
     }
  @Override

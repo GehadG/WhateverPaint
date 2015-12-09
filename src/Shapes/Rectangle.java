@@ -26,6 +26,8 @@ public class Rectangle extends Shapes{
         g2.setStroke(new BasicStroke(getPenSize()));
         rect.setRect(Math.min(getWidths(), getxPos()),Math.min(getLengths(), getyPos()),Math.abs(getWidths()-getxPos()),Math.abs(getLengths()-getyPos()));
         g2.draw(rect); 
+        if(isSelected())
+            drawBound(g2);
         
         
     }
