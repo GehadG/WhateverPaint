@@ -36,7 +36,7 @@ public class Selector extends Shapes {
         g2.setComposite(AlphaComposite.SrcOver.derive(0.1f));
        
         g2.setStroke(dashed);
-        rect.setRect(getxPos(), getyPos(), getWidths(), getLengths());
+        rect.setRect(Math.min(getWidths(), getxPos()),Math.min(getLengths(), getyPos()),Math.abs(getWidths()-getxPos()),Math.abs(getLengths()-getyPos()));
         g2.draw(rect); 
          g2.setColor(new Color(0,191,243));
          g2.fill(rect);

@@ -26,7 +26,7 @@ public class Circle extends Ellipse{
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(getColor());
         g2.setStroke(new BasicStroke(getPenSize()));
-        ellipse.setFrame(Math.min(getMouseDraggedx(), getMousePressedx()),Math.min(getMouseDraggedy(), getMousePressedy()),Math.abs(getMouseDraggedx()-getMousePressedx()),Math.abs(getMouseDraggedx()-getMousePressedx()));
+        ellipse.setFrame(Math.min(getWidths(), getxPos()),Math.min(getLengths(), getyPos()),Math.abs(getWidths()-getxPos()),Math.abs(getWidths()-getxPos()));
         g2.draw(ellipse);
         
     }

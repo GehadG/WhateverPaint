@@ -7,7 +7,9 @@ package ToolsPanels;
 
 import Shapes.Line;
 import Shapes.FreeHand;
+import Shapes.IsocelesTriangle;
 import Shapes.Rectangle;
+import Shapes.RightTriangle;
 import Shapes.Shapes;
 import WhateverPaint.MainWindow;
 import java.awt.AWTException;
@@ -81,8 +83,6 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
     public void mousePressed(MouseEvent e) {
       s.setxPos(e.getX());
       s.setyPos(e.getY());
-      s.setMousePressedx(e.getX());
-      s.setMousePressedy(e.getY());
       s.setColor(color);
       s.setPenSize(stroke);
       
@@ -116,8 +116,6 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
     @Override
     public void mouseDragged(MouseEvent e) {
         MainWindow.setPosition("Mouse Position :"+e.getX()+","+e.getY());
-        s.setMouseDraggedx(e.getX());
-        s.setMouseDraggedy(e.getY());
         if(s instanceof FreeHand)
         {s.setPoint(e.getPoint());
          
@@ -128,9 +126,14 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
             s.setLengths(e.getY() );
            
         }
+          else if(s instanceof RightTriangle|| s instanceof IsocelesTriangle){
+              s.setWidths(e.getX()-s.getxPos());
+            s.setLengths(e.getY()-s.getyPos() ); 
+          }
+          
         else {
-            s.setWidths(e.getX() - s.getxPos());
-            s.setLengths(e.getY() - s.getyPos());
+            s.setWidths(e.getX() );
+            s.setLengths(e.getY() );
    
         }
        

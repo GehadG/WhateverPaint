@@ -38,8 +38,8 @@ public   JButton old;
         sqButton.setToolTipText("Square");
         ellipse.setToolTipText("Ellipse");
         circle.setToolTipText("Circle");
-        rightTrig.setToolTipText("Right Angled Triangle");
-        isoTrig.setToolTipText("Isoceles Angled Triangle");
+        rightTrig.setToolTipText("Right Triangle");
+        isoTrig.setToolTipText("Isoceles Triangle");
         line.setToolTipText("Line");
         freeHand.setToolTipText("Free Hand");
     }
