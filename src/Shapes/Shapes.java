@@ -27,7 +27,7 @@ public abstract class Shapes extends JComponent{
     private double lengths;
     private double widths;
     private boolean selected=false;
-    private Color fillColor=Color.white;
+    private Color fillColor= new Color(0,0,0,0f);
     private Shape thisShape;
     private ArrayList<Rectangle2D> resizePoints= new ArrayList();
     public boolean isSelected() {
@@ -109,6 +109,7 @@ public abstract class Shapes extends JComponent{
     public abstract void drawShape(Graphics g);
     public  boolean containsPoint(Point p){
        boolean check =thisShape.getBounds2D().contains(p);
+        
         return check;
     }
     public void setPoint(Point p){

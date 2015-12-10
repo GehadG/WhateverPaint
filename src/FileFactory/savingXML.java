@@ -32,16 +32,20 @@ import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import java.awt.Color;
 import java.awt.Point;
 import java.io.FileNotFoundException;
+import javax.swing.JFileChooser;
 
 /**
  *
  * @author Hana hefny
  */
 public class savingXML {
-
-    public savingXML(ArrayList<Shapes> list) {
+private String path;
+    public savingXML(ArrayList<Shapes> list,String path) {
         try {
+            this.path=path;
             this.savetoXMLfile(list);
+            JFileChooser file= new JFileChooser();
+            file.setVisible(true);
         } catch (ParserConfigurationException parse) {
         } catch (FileNotFoundException filenotfound) {
         } catch (IOException ioexception) {
@@ -189,9 +193,12 @@ public class savingXML {
                  redcolour = s.getFillColor().getRed();
                  greencolour = s.getFillColor().getGreen();
                  bluecolour = s.getFillColor().getBlue();
+                int alphacolor= s.getFillColor().getAlpha();
                  redc = Integer.toString(redcolour);
                  greenc = Integer.toString(greencolour);
                  bluec = Integer.toString(bluecolour);
+                
+                 String alphac = Integer.toString(alphacolor);
                 Element colourfill = xmldoc.createElement("colourfill");
                 Text redfilltext = xmldoc.createTextNode(redc);
                 Element redfill = xmldoc.createElement("redfillcomponent");
@@ -205,6 +212,10 @@ public class savingXML {
                 Element bluefill = xmldoc.createElement("bluefillcomponent");
                 bluefill.appendChild(bluefilltext);
                 colourfill.appendChild(bluefill);
+                Text alphafilltext = xmldoc.createTextNode(alphac);
+                Element alpha = xmldoc.createElement("alpha");
+                alpha.appendChild(alphafilltext);
+                colourfill.appendChild(alpha);
                 mainelement.appendChild(colourfill);
                 
             }
@@ -212,16 +223,16 @@ public class savingXML {
             
         }
         xmldoc.appendChild(rootEle);
-        //outputformat
+       
         OutputFormat outformat = new OutputFormat(xmldoc);
         outformat.setIndenting(true);
-        //declare file
-        File xmlfile = new File("shapes.xml");
-        //declarefileoutputstream
+        
+        File xmlfile = new File(path);
+  
         FileOutputStream outstream = new FileOutputStream(xmlfile);
-        //xmlsereliser
+    
         XMLSerializer serializer = new XMLSerializer(outstream, outformat);
-        //specifiedoutput,serializedata
+    
         serializer.serialize(xmldoc);
     }
 

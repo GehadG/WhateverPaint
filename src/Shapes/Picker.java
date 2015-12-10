@@ -12,7 +12,7 @@ import java.awt.Point;
  *
  * @author Gehad
  */
-public class Mover extends Shapes {
+public class Picker extends Shapes{
 
     @Override
     public void drawShape(Graphics g) {
@@ -20,16 +20,14 @@ public class Mover extends Shapes {
     }
 
     @Override
-    public Mover move(Point p,Mover m) {
-       return m;
+    public Mover move(Point p, Mover m) {
+        return m;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 
     @Override
     public void resize(Point p, Resizer r) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
     
 }

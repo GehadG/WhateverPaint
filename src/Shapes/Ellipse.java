@@ -37,6 +37,8 @@ public class Ellipse extends Shapes {
         g2.setStroke(new BasicStroke(getPenSize()));
         ellipse.setFrame(Math.min(getWidths(), getxPos()),Math.min(getLengths(), getyPos()),Math.abs(getWidths()-getxPos()),Math.abs(getLengths()-getyPos()));
         g2.draw(ellipse);
+        g2.setPaint(getFillColor());
+        g2.fill(ellipse);
         if(isSelected())
             drawBound(g2);
         

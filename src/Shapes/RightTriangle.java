@@ -41,6 +41,8 @@ public class RightTriangle extends Shapes {
         triangle = new Polygon(new int[]{x1, x2, x3}, new int[]{y1, y2, y3}, 3);
         g2.draw(triangle);
         setThisShape(triangle.getBounds2D());
+        g2.setPaint(getFillColor());
+        g2.fill(triangle);
         if(isSelected())
             drawBound(g2);
         

@@ -5,10 +5,12 @@
  */
 package ToolsPanels;
 
+import Shapes.Filler;
 import Shapes.Line;
 import Shapes.FreeHand;
 import Shapes.IsocelesTriangle;
 import Shapes.Mover;
+import Shapes.Picker;
 import Shapes.Rectangle;
 import Shapes.Resizer;
 import Shapes.RightTriangle;
@@ -36,22 +38,30 @@ import Shapes.Selector;
 public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
     
     private static Shapes s = new FreeHand();
- 
+    public static boolean whichColor=false;
 
     public static void setShape(Shapes s) {
         Canvas.s = s;
     }
     public static ArrayList<Shapes> prevShapes = new ArrayList();
-    
+    private boolean flag=false;
     
     private static int stroke;
     private static Color color = Color.BLACK;
+    private static Color bgColor= new Color(255, 255, 255, 0);
+    private Color transparent= new Color(255, 255, 255, 0);
     public Canvas() {
         setBackground(color.white);
         addMouseListener(this);
         addMouseMotionListener(this);
      
     }
+
+    public static void setBgColor(Color bgColor) {
+        Canvas.bgColor = bgColor;
+    }
+
+    
 
 
     
@@ -82,17 +92,42 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
 private int x,y;
     @Override
     public void mousePressed(MouseEvent e) {
+        flag=false;
       s.setxPos(e.getX());
       s.setyPos(e.getY());
       s.setColor(color);
       s.setPenSize(stroke);
+      
+       if(s instanceof Filler)
+        {
+            for(Shapes ss:prevShapes)
+            {
+                if(ss.containsPoint(e.getPoint()))
+                {   
+                    ss.setFillColor(bgColor);
+                }
+                
+            }
+            repaint();
+        }
+       else if(s instanceof Picker)
+       {
+            try {
+                Robot robot =new Robot();
+                color = robot.getPixelColor(e.getXOnScreen(), e.getYOnScreen());
+                ColorBoxes.penColor.setBackground(color);
+            } catch (AWTException ex) {
+                Logger.getLogger(Canvas.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       }
       
       
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if(!(s instanceof Selector)&&!(s instanceof Mover)&&!(s instanceof Resizer))
+       
+        if(flag&&!(s instanceof Selector)&&!(s instanceof Mover)&&!(s instanceof Resizer)&&!(s instanceof Filler)&&!(s instanceof Picker))
         {
       prevShapes.add(s);
         
@@ -116,12 +151,14 @@ private int x,y;
 
     @Override
     public void mouseDragged(MouseEvent e) {
+        flag=true;
         MainWindow.setPosition("Mouse Position :"+e.getX()+","+e.getY());
         if(s instanceof FreeHand)
         {s.setPoint(e.getPoint());
          
         
         }
+        
         else if(s instanceof Mover)
         {Mover temp= new Mover();
            for(Shapes s2: prevShapes)

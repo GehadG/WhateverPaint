@@ -32,6 +32,8 @@ public class Square extends Rectangle {
         g2.setStroke(new BasicStroke(getPenSize()));
         rect.setRect(Math.min(getWidths(), getxPos()),Math.min(getLengths(), getyPos()),Math.abs(getWidths()-getxPos()),Math.abs(getWidths()-getxPos()));
         g2.draw(rect);
+        g2.setPaint(getFillColor());
+        g2.fill(rect);
         if(isSelected())
             drawBound(g2);
         

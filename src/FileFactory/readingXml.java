@@ -28,15 +28,17 @@ import Shapes.*;
 public class readingXml {
 ArrayList<Shapes> shapes2 = new ArrayList<Shapes>();
 ArrayList<Point> pointss;
-    public readingXml() {
+private String path;
+     public readingXml(String path) {
         try {
+            this.path=path;
             this.readfromXMLfile();
         } catch (ParserConfigurationException | SAXException | IOException parse) {
         }
     }
 
     public void readfromXMLfile() throws ParserConfigurationException, SAXException, IOException {
-        File fXmlFile = new File("C:\\Users\\Gehad-PC\\Documents\\NetBeansProjects\\WhateverPaint\\shapes.xml");
+        File fXmlFile = new File(path);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(fXmlFile);
@@ -76,7 +78,7 @@ ArrayList<Point> pointss;
                     String greenfillcomponent = eElement.getElementsByTagName("greenfillcomponent").item(0).getTextContent();
                     
                     String bluefillcomponent = eElement.getElementsByTagName("bluefillcomponent").item(0).getTextContent();
-                    
+                    String alpha = eElement.getElementsByTagName("alpha").item(0).getTextContent();
                     int xpointint = Integer.parseInt(xpoint);
                     int ypointint = Integer.parseInt(ypoint);
                     int pensizeint = Integer.parseInt(pensize);
@@ -89,7 +91,8 @@ ArrayList<Point> pointss;
                     int redfillcompint = Integer.parseInt(redfillcomponent);
                     int bluefillcompint = Integer.parseInt(bluefillcomponent);
                     int greenfillcompint = Integer.parseInt(greenfillcomponent);
-                    Color colourfill = new Color(redfillcompint, greenfillcompint, bluefillcompint);
+                    int alphafill=Integer.parseInt(alpha);
+                    Color colourfill = new Color(redfillcompint, greenfillcompint, bluefillcompint,alphafill);
                     if(type.equals("Rectangle"))
                     { s=new Rectangle();
                     }

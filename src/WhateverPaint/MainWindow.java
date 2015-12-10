@@ -1,55 +1,51 @@
-package WhateverPaint;
-
-
-import ToolsPanels.Canvas;
-import java.util.Hashtable;
-import java.util.Stack;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import Shapes.Shapes;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JComponent;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.plaf.basic.BasicMenuBarUI;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package WhateverPaint;
+
+import Shapes.Shapes;
+import ToolsPanels.Canvas;
+import java.awt.Color;
+import java.awt.Graphics;
+import static java.awt.SystemColor.menu;
+import java.util.ArrayList;
+import java.util.Stack;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.plaf.basic.BasicMenuBarUI;
 
 /**
  *
  * @author Gehad
  */
 public class MainWindow extends javax.swing.JFrame {
-
     
-    private Stack <Shapes> redoo;
-    private Shapes temp1;
-    private Shapes temp2;
-    private int flag1=0;
-    private int flag2=0;
-    private ArrayList<Shapes> prevShapes2 = new ArrayList();
-    public static void setPosition(String position) {
-        mousePos.setText(position);
-    }
-
     
+   
 
-  
+    public static JButton old;
     public MainWindow() {
         initComponents();
-        this.redoo = new Stack();
-        redo.setEnabled(false);
-        undo.setEnabled(false);
+        editBox1.setCanvas(canvas1);
+        mainButtonGroup1.setCc(canvas1);
+        setLocationRelativeTo(null);
+        stroker.setValue(0);
+            getContentPane().setBackground( new Color(83,83,83) );
+        menu.setUI ( new BasicMenuBarUI (){
+    public void paint ( Graphics g, JComponent c ){
+       g.setColor ( new Color(40,40,40) );
+       g.fillRect ( 0, 0, c.getWidth (), c.getHeight () );
+    }
+} );
+        
         
     }
-
+ public static void setPosition(String s)
+ {
+     position.setText(s);
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,155 +55,27 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
-        jButton2 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        stroke = new javax.swing.JSlider();
-        jButton12 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         canvas1 = new ToolsPanels.Canvas();
-        MousePositioner = new javax.swing.JPanel();
-        mousePos = new javax.swing.JLabel();
-        colorChooser1 = new ToolsPanels.ColorChooser();
-        toolBox = new ToolsPanels.ToolBoxs();
-        undo = new javax.swing.JButton();
-        redo = new javax.swing.JButton();
-        clear = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        position = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        toolBoxs1 = new ToolsPanels.ToolBoxs();
+        colorStrip1 = new ToolsPanels.ColorStrip();
+        colorBoxes1 = new ToolsPanels.ColorBoxes();
+        stroker = new javax.swing.JSlider();
+        jLabel1 = new javax.swing.JLabel();
+        mainButtonGroup1 = new ToolsPanels.MainButtonGroup();
+        editBox1 = new ToolsPanels.EditBox();
         menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
-        jButton2.setText("jButton1");
-
-        jButton7.setText("jButton1");
-
-        jButton3.setText("jButton1");
-
-        jButton8.setText("jButton1");
-
-        jButton4.setText("jButton1");
-
-        jButton13.setText("jButton1");
-
-        jButton9.setText("jButton1");
-
-        jButton14.setText("jButton1");
-
-        jButton5.setText("jButton1");
-
-        jButton15.setText("jButton1");
-
-        jButton10.setText("jButton1");
-
-        jButton1.setText("jButton1");
-
-        jButton11.setText("jButton1");
-
-        stroke.setMinorTickSpacing(1);
-        stroke.setPaintLabels(true);
-        stroke.setPaintTicks(true);
-        stroke.setSnapToTicks(true);
-        stroke.setToolTipText("");
-        stroke.setValue(20);
-
-        jButton12.setText("jButton1");
-
-        jButton6.setText("jButton1");
-
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(stroke, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDialog1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jDialog1Layout.createSequentialGroup()
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jDialog1Layout.createSequentialGroup()
-                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton14)
-                    .addComponent(jButton15)
-                    .addComponent(jButton11)
-                    .addComponent(jButton13)
-                    .addComponent(jButton12))
-                .addGap(18, 18, 18)
-                .addComponent(stroke, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(83, 83, 83));
-        setForeground(new java.awt.Color(83, 83, 83));
-        setMaximumSize(new java.awt.Dimension(1280, 688));
-        setMinimumSize(new java.awt.Dimension(1280, 688));
 
         canvas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                canvas1MouseClicked(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 canvas1MouseReleased(evt);
             }
@@ -217,59 +85,114 @@ public class MainWindow extends javax.swing.JFrame {
         canvas1.setLayout(canvas1Layout);
         canvas1Layout.setHorizontalGroup(
             canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+            .addGap(0, 1152, Short.MAX_VALUE)
         );
         canvas1Layout.setVerticalGroup(
             canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 589, Short.MAX_VALUE)
+            .addGap(0, 437, Short.MAX_VALUE)
         );
 
-        MousePositioner.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        mousePos.setText("Mouse Position:");
+        position.setForeground(new java.awt.Color(255, 255, 255));
+        position.setText("Mouse");
 
-        javax.swing.GroupLayout MousePositionerLayout = new javax.swing.GroupLayout(MousePositioner);
-        MousePositioner.setLayout(MousePositionerLayout);
-        MousePositionerLayout.setHorizontalGroup(
-            MousePositionerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MousePositionerLayout.createSequentialGroup()
-                .addComponent(mousePos, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 962, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(position)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        MousePositionerLayout.setVerticalGroup(
-            MousePositionerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MousePositionerLayout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(mousePos))
+                .addComponent(position))
         );
 
-        undo.setText("Undo");
-        undo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                undoActionPerformed(evt);
+        jPanel2.setBackground(new java.awt.Color(40, 40, 40));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(40, 40, 40)));
+        jPanel2.setForeground(new java.awt.Color(40, 40, 40));
+        jPanel2.setToolTipText("");
+
+        colorBoxes1.setToolTipText("Color Box");
+
+        stroker.setMaximum(20);
+        stroker.setMinorTickSpacing(1);
+        stroker.setSnapToTicks(true);
+        stroker.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                strokerStateChanged(evt);
             }
         });
 
-        redo.setText("Redo");
-        redo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                redoActionPerformed(evt);
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Brush Size");
+        jLabel1.setToolTipText("");
+
+        editBox1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                editBox1MouseMoved(evt);
+            }
+        });
+        editBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editBox1MouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                editBox1MouseReleased(evt);
             }
         });
 
-        clear.setText("Clear");
-        clear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(mainButtonGroup1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(stroker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(editBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)))
+                .addComponent(toolBoxs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(colorBoxes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(colorStrip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(toolBoxs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(stroker, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(colorBoxes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(colorStrip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mainButtonGroup1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
-        menu.setBackground(new java.awt.Color(40, 40, 40));
-        menu.setForeground(new java.awt.Color(40, 40, 40));
-
+        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("File");
         menu.add(jMenu1);
 
+        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
         jMenu2.setText("Edit");
         menu.add(jMenu2);
 
@@ -279,96 +202,51 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MousePositioner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(colorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(toolBox, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(undo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(redo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(undo)
-                    .addComponent(redo)
-                    .addComponent(clear))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(toolBox, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(colorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(MousePositioner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void strokerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_strokerStateChanged
+        Canvas.setStroke(stroker.getValue());
+    }//GEN-LAST:event_strokerStateChanged
+
+    private void canvas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseClicked
+        
+    }//GEN-LAST:event_canvas1MouseClicked
+
     private void canvas1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseReleased
-       toolBox.old.doClick();
-        undo.setEnabled(true);
+old.doClick();
+editBox1.undo.setEnabled(true);
     }//GEN-LAST:event_canvas1MouseReleased
 
-    private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
-         
-        if (!Canvas.getPrevShapes().isEmpty()){
-          undo.setEnabled(true);
-          flag1++;
-          prevShapes2 = Canvas.getPrevShapes();
-          temp1 = prevShapes2.get(prevShapes2.size()-1);
-          redoo.push(temp1);
-          prevShapes2.remove(prevShapes2.size()-1);
-          System.out.println(prevShapes2.size());
-          Canvas.setPrevShapes(prevShapes2);
-          repaint();
-          redo.setEnabled(true);
-          
-      } if (prevShapes2.size()==0) 
-        {undo.setEnabled(false);
-        }
+    private void editBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editBox1MouseClicked
+       
+    }//GEN-LAST:event_editBox1MouseClicked
+
+    private void editBox1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editBox1MouseReleased
         
-    }//GEN-LAST:event_undoActionPerformed
+    }//GEN-LAST:event_editBox1MouseReleased
 
-    private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
-        temp2 = redoo.pop();
-        prevShapes2.add(temp2);
-        undo.setEnabled(true);
-        Canvas.setPrevShapes(prevShapes2);
-        flag2++;
-        repaint();
-        System.out.println(prevShapes2.size());
-        if (flag1==flag2){
-            redo.setEnabled(false);
-        }
-    }//GEN-LAST:event_redoActionPerformed
+    private void editBox1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editBox1MouseMoved
 
-    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
-        prevShapes2 = new ArrayList();
-        Canvas.setPrevShapes(prevShapes2);
-        repaint();
-        undo.setEnabled(false);
-        redo.setEnabled(false);
-    }//GEN-LAST:event_clearActionPerformed
-    
-    /**
-     * @param args the command line arguments
-     */
+    }//GEN-LAST:event_editBox1MouseMoved
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -396,39 +274,25 @@ public class MainWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainWindow().setVisible(true);
+               new MainWindow().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel MousePositioner;
     private ToolsPanels.Canvas canvas1;
-    private javax.swing.JButton clear;
-    private ToolsPanels.ColorChooser colorChooser1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JDialog jDialog1;
+    private ToolsPanels.ColorBoxes colorBoxes1;
+    private ToolsPanels.ColorStrip colorStrip1;
+    private ToolsPanels.EditBox editBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private ToolsPanels.MainButtonGroup mainButtonGroup1;
     private javax.swing.JMenuBar menu;
-    private static javax.swing.JLabel mousePos;
-    private javax.swing.JButton redo;
-    private javax.swing.JSlider stroke;
-    private ToolsPanels.ToolBoxs toolBox;
-    private javax.swing.JButton undo;
+    private static javax.swing.JLabel position;
+    private javax.swing.JSlider stroker;
+    private ToolsPanels.ToolBoxs toolBoxs1;
     // End of variables declaration//GEN-END:variables
 }

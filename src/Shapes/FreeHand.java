@@ -83,6 +83,10 @@ public class FreeHand extends Shapes {
 
    @Override
     public Mover move(Point p,Mover m) {
+        minX=1000;
+      minY=1000;
+     maxX=0;
+     maxY=0;
         int baseX=m.getxPos();
         int baseY=m.getyPos();
         int dx = (int) (p.getX() - baseX);
