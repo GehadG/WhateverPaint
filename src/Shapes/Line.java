@@ -37,6 +37,36 @@ public class Line extends Shapes {
         
     }
 
+    @Override
+    public Mover move(Point p,Mover m) {
+        int baseX=m.getxPos();
+        int baseY=m.getyPos();
+        int dx = (int) (p.getX() - baseX);
+        int dy = (int) (p.getY() - baseY);
+        setxPos(getxPos()+dx);
+                    setyPos(getyPos()+dy);
+                    setWidths(getWidths()+dx);
+                    setLengths(getLengths()+dy);
+                    
+                    m.setxPos(baseX+dx);
+                    m.setyPos(baseY+dy);
+                    return m;
+        
+    }
+     @Override
+    public void drawBound(Graphics g) {
+        drawBoundPoint(getxPos(), getyPos(), g);
+        drawBoundPoint((int)getWidths(), (int)getLengths(), g);
+        
+        
+    }
+    @Override
+    public void resize(Point p, Resizer r) {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
     
     
     

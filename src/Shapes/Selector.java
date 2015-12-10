@@ -8,6 +8,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.geom.Rectangle2D;
 
 /*
@@ -24,7 +25,8 @@ public class Selector extends Shapes {
  private Rectangle2D rect = new Rectangle2D.Double();
 
     public Selector() {
-        Canvas.selectShapes.clear();
+        
+      
     }
  
     @Override
@@ -41,10 +43,10 @@ public class Selector extends Shapes {
          g2.setColor(new Color(0,191,243));
          g2.fill(rect);
          g2.setComposite(AlphaComposite.SrcOver);
-         select(g2);
+         select();
         
     }
-    public void select(Graphics2D g)
+    public void select()
     {Rectangle2D checker = new Rectangle2D.Double();
     
         for(Shapes s: Canvas.prevShapes)
@@ -52,11 +54,9 @@ public class Selector extends Shapes {
            checker=s.getThisShape().getBounds2D();
            if(rect.contains(checker)){
                s.setSelected(true);
-               s.drawBound(g);
-              Canvas.selectShapes.add(s);
+             
            }
-           else
-               s.setSelected(false);
+          
            
            
             
@@ -64,4 +64,30 @@ public class Selector extends Shapes {
         
     }
     
+   public void select(Point p)
+   {
+       for(Shapes s:Canvas.prevShapes)
+       {
+           if(s.containsPoint(p))
+               s.setSelected(true);
+       }
+   }
+    public static void disposeSelection()
+    {
+        for(Shapes s:Canvas.prevShapes)
+               s.setSelected(false);
+    }
+
+    @Override
+    public Mover move(Point p,Mover m) {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return m;
+    }
+
+    @Override
+    public void resize(Point p, Resizer r) {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
 }

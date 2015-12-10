@@ -5,6 +5,8 @@
  */
 package ToolsPanels;
 
+import FileFactory.readingXml;
+import FileFactory.savingXML;
 import Shapes.Selector;
 import Shapes.Square;
 import Shapes.Circle;
@@ -15,6 +17,9 @@ import Shapes.Ellipse;
 import Shapes.Eraser;
 import Shapes.Rectangle;
 import Shapes.IsocelesTriangle;
+import Shapes.Mover;
+import Shapes.Resizer;
+import Shapes.Shapes;
 import java.util.Hashtable;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -67,6 +72,10 @@ public   JButton old;
         selectButton = new javax.swing.JButton();
         sqButton = new javax.swing.JButton();
         erase = new javax.swing.JButton();
+        save = new javax.swing.JButton();
+        load = new javax.swing.JButton();
+        mover = new javax.swing.JButton();
+        resizer = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setMaximumSize(new java.awt.Dimension(205, 164));
@@ -159,6 +168,34 @@ public   JButton old;
             }
         });
 
+        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-line.png"))); // NOI18N
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
+
+        load.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-freehand.png"))); // NOI18N
+        load.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadActionPerformed(evt);
+            }
+        });
+
+        mover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-freehand.png"))); // NOI18N
+        mover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moverActionPerformed(evt);
+            }
+        });
+
+        resizer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-freehand.png"))); // NOI18N
+        resizer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resizerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,11 +223,19 @@ public   JButton old;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(line, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(freeHand, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(freeHand, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(resizer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(selectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(erase, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(erase, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(load, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mover, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(stroker, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -216,12 +261,16 @@ public   JButton old;
                             .addComponent(rightTrig)
                             .addComponent(isoTrig)
                             .addComponent(line)
-                            .addComponent(freeHand))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(erase)
-                            .addComponent(selectButton)))
+                            .addComponent(freeHand)
+                            .addComponent(resizer)))
                     .addComponent(sqButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(load)
+                    .addComponent(save)
+                    .addComponent(erase)
+                    .addComponent(selectButton)
+                    .addComponent(mover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -270,7 +319,9 @@ public   JButton old;
     }//GEN-LAST:event_strokerStateChanged
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
+       
         Canvas.setShape(new Selector());
+      
        
         old=selectButton;
     }//GEN-LAST:event_selectButtonActionPerformed
@@ -283,9 +334,30 @@ public   JButton old;
 
     private void eraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eraseActionPerformed
          Canvas.setShape(new Eraser());
-        
         old=erase;
     }//GEN-LAST:event_eraseActionPerformed
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        savingXML save = new savingXML(Canvas.getPrevShapes());
+    }//GEN-LAST:event_saveActionPerformed
+
+    private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
+        readingXml load = new readingXml();
+        
+        Canvas.setPrevShapes(load.getShapes2());
+        
+        
+    }//GEN-LAST:event_loadActionPerformed
+
+    private void moverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverActionPerformed
+       Canvas.setShape(new Mover());
+       old=mover;
+    }//GEN-LAST:event_moverActionPerformed
+
+    private void resizerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resizerActionPerformed
+        Canvas.setShape(new Resizer());
+       old=resizer;
+    }//GEN-LAST:event_resizerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -297,8 +369,12 @@ public   JButton old;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton line;
+    private javax.swing.JButton load;
+    private javax.swing.JButton mover;
     private javax.swing.JButton rect;
+    private javax.swing.JButton resizer;
     private javax.swing.JButton rightTrig;
+    private javax.swing.JButton save;
     private javax.swing.JButton selectButton;
     private javax.swing.JButton sqButton;
     private javax.swing.JSlider stroker;

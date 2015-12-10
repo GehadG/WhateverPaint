@@ -24,6 +24,14 @@ public class FreeHand extends Shapes {
     protected int maxX=0;
     protected int maxY=0;
 
+    public ArrayList<Point> getPoints() {
+        return points;
+    }
+
+    public void setPoints(ArrayList<Point> points) {
+        this.points = points;
+    }
+
     
    
     
@@ -73,8 +81,37 @@ public class FreeHand extends Shapes {
         
     }
 
+   @Override
+    public Mover move(Point p,Mover m) {
+        int baseX=m.getxPos();
+        int baseY=m.getyPos();
+        int dx = (int) (p.getX() - baseX);
+        int dy = (int) (p.getY() - baseY);
+        int x;
+        int y;
+        for(Point pp : points)
+        {
+            x=(int) (pp.getX()+dx);
+            y=(int) (pp.getY()+dy);
+            pp.setLocation(x, y);
+            
+            
+        }
+                    
+                    m.setxPos(baseX+dx);
+                    m.setyPos(baseY+dy);
+                    return m;
+        
+    }
+
    
+
+    @Override
+    public void resize(Point p, Resizer r) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
-    
+
+   
     
 }

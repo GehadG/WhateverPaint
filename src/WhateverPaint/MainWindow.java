@@ -7,7 +7,15 @@ import java.util.Stack;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import Shapes.Shapes;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComponent;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.basic.BasicMenuBarUI;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -76,7 +84,7 @@ public class MainWindow extends javax.swing.JFrame {
         undo = new javax.swing.JButton();
         redo = new javax.swing.JButton();
         clear = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
@@ -194,6 +202,8 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(83, 83, 83));
+        setForeground(new java.awt.Color(83, 83, 83));
         setMaximumSize(new java.awt.Dimension(1280, 688));
         setMinimumSize(new java.awt.Dimension(1280, 688));
 
@@ -254,13 +264,16 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        menu.setBackground(new java.awt.Color(40, 40, 40));
+        menu.setForeground(new java.awt.Color(40, 40, 40));
+
         jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        menu.add(jMenu1);
 
         jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menu.add(jMenu2);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -411,7 +424,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JDialog jDialog1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar menu;
     private static javax.swing.JLabel mousePos;
     private javax.swing.JButton redo;
     private javax.swing.JSlider stroke;

@@ -51,4 +51,25 @@ private int x1,x2,x3,y1,y2,y3;
         drawBoundPoint(x3, y3, g);
 
     }
+
+    @Override
+    public Mover move(Point p,Mover m) {
+        int baseX=m.getxPos();
+        int baseY=m.getyPos();
+        int dx = (int) (p.getX() - baseX);
+        int dy = (int) (p.getY() - baseY);
+        setxPos(getxPos()+dx);
+        setyPos(getyPos()+dy);
+                    m.setxPos(baseX+dx);
+                    m.setyPos(baseY+dy);
+                    return m;
+        
+    }
+
+  
+
+    @Override
+    public void resize(Point p, Resizer r) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

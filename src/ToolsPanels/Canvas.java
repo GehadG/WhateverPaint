@@ -8,7 +8,9 @@ package ToolsPanels;
 import Shapes.Line;
 import Shapes.FreeHand;
 import Shapes.IsocelesTriangle;
+import Shapes.Mover;
 import Shapes.Rectangle;
+import Shapes.Resizer;
 import Shapes.RightTriangle;
 import Shapes.Shapes;
 import WhateverPaint.MainWindow;
@@ -34,17 +36,16 @@ import Shapes.Selector;
 public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
     
     private static Shapes s = new FreeHand();
-      Point coord;
-      Robot robot = null;
+ 
 
     public static void setShape(Shapes s) {
         Canvas.s = s;
     }
     public static ArrayList<Shapes> prevShapes = new ArrayList();
-    public static ArrayList<Shapes> selectShapes = new ArrayList();
+    
     
     private static int stroke;
-    private static Color color;
+    private static Color color = Color.BLACK;
     public Canvas() {
         setBackground(color.white);
         addMouseListener(this);
@@ -64,21 +65,21 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
         }
         
           s.drawShape(g);
-          for(Shapes ss : selectShapes)
-              
-        {
-            ss.drawBound(g);
-        }
-          System.out.println(selectShapes.size());
+       
 
     }
     
     @Override
     public void mouseClicked(MouseEvent e) {
-      
+        Selector.disposeSelection();
+        if(s instanceof Selector)
+        {
+            ((Selector)s).select(e.getPoint());
+        }
+      repaint();
        
     }
-
+private int x,y;
     @Override
     public void mousePressed(MouseEvent e) {
       s.setxPos(e.getX());
@@ -91,7 +92,7 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if(!(s instanceof Selector))
+        if(!(s instanceof Selector)&&!(s instanceof Mover)&&!(s instanceof Resizer))
         {
       prevShapes.add(s);
         
@@ -120,6 +121,22 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
         {s.setPoint(e.getPoint());
          
         
+        }
+        else if(s instanceof Mover)
+        {Mover temp= new Mover();
+           for(Shapes s2: prevShapes)
+           {    if(s2.isSelected())
+               temp=s2.move(e.getPoint(),(Mover) s);
+           }
+           s=temp;
+        }
+        else if(s instanceof Resizer)
+        {
+            for(Shapes s2:prevShapes)
+            {
+                if(s2.isSelected())
+                    s2.resize(e.getPoint(), (Resizer) s);
+            }
         }
           else if (s instanceof Line) {
             s.setWidths(e.getX());

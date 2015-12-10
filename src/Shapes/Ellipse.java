@@ -10,6 +10,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 
 
 /**
@@ -38,6 +40,57 @@ public class Ellipse extends Shapes {
         if(isSelected())
             drawBound(g2);
         
+    }
+
+   @Override
+    public Mover move(Point p,Mover m) {
+        int baseX=m.getxPos();
+        int baseY=m.getyPos();
+        int dx = (int) (p.getX() - baseX);
+        int dy = (int) (p.getY() - baseY);
+        setxPos(getxPos()+dx);
+                    setyPos(getyPos()+dy);
+                    setWidths(getWidths()+dx);
+                    setLengths(getLengths()+dy);
+                    
+                    m.setxPos(baseX+dx);
+                    m.setyPos(baseY+dy);
+                    return m;
+        
+    }
+ 
+    @Override
+    public void resize(Point p, Resizer r) {
+        ArrayList<Rectangle2D> rs = getResizePoints();
+        for(int i=0;i<rs.size();i++)
+        {
+            if(rs.get(i).contains(p))
+            {
+                if(i==0)
+                {
+                    setxPos((int) p.getX());
+                    setyPos((int) p.getY());
+                }
+                else if(i==1)
+                {
+                    setxPos((int) p.getX());
+                    
+                    setWidths(p.getY());
+                }
+                else if(i==2)
+                {
+                    setyPos((int) p.getY());
+                    
+                    setLengths(p.getX());
+                }
+                else 
+                {
+                    setWidths((int) p.getX());
+                    setLengths((int) p.getY());
+                    
+                }
+            }
+        }
     }
 
     

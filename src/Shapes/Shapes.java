@@ -22,15 +22,28 @@ import javax.swing.JComponent;
 public abstract class Shapes extends JComponent{
     private int xPos;
     private int yPos;
-    private Color color;
+    private Color color=Color.BLACK;
     private int penSize;
     private double lengths;
     private double widths;
     private boolean selected=false;
+    private Color fillColor=Color.white;
     private Shape thisShape;
     private ArrayList<Rectangle2D> resizePoints= new ArrayList();
     public boolean isSelected() {
         return selected;
+    }
+
+    public ArrayList<Rectangle2D> getResizePoints() {
+        return resizePoints;
+    }
+
+    public Color getFillColor() {
+        return fillColor;
+    }
+
+    public void setFillColor(Color fillColor) {
+        this.fillColor = fillColor;
     }
 
     public void setSelected(boolean selected) {
@@ -122,5 +135,7 @@ public abstract class Shapes extends JComponent{
          drawBoundPoint((int)bound.getMaxX(),(int)bound.getMaxY(), g);
          
      }
-
+     public abstract Mover move(Point p,Mover m);
+     public abstract void resize(Point p,Resizer r);
+    
 }

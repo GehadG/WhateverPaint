@@ -49,7 +49,9 @@ public class ColorChooser extends javax.swing.JPanel {
         currentColor = new javax.swing.JPanel();
         colorStrip = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(40, 40, 40));
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setForeground(new java.awt.Color(40, 40, 40));
 
         colorWheel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/color-picker-wheel.png"))); // NOI18N
         colorWheel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
