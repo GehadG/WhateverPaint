@@ -103,6 +103,7 @@
           <Image iconType="3" name="/Resources/draw-rectangle.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Rectangle"/>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rectActionPerformed"/>
@@ -117,6 +118,7 @@
           <Image iconType="3" name="/Resources/draw-ellipse.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Ellipse"/>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ellipseActionPerformed"/>
@@ -131,6 +133,7 @@
           <Image iconType="3" name="/Resources/draw-circle.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Circle"/>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="circleActionPerformed"/>
@@ -145,6 +148,7 @@
           <Image iconType="3" name="/Resources/draw-freehand.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Free Hand"/>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="freeHandActionPerformed"/>
@@ -159,6 +163,7 @@
           <Image iconType="3" name="/Resources/draw-line.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Line"/>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lineActionPerformed"/>
@@ -173,6 +178,7 @@
           <Image iconType="3" name="/Resources/draw-triangle3.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Triangle"/>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="isoTrigActionPerformed"/>
@@ -187,6 +193,7 @@
           <Image iconType="3" name="/Resources/draw-triangle.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Right Triangle"/>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rightTrigActionPerformed"/>
@@ -201,6 +208,7 @@
           <Image iconType="3" name="/Resources/draw-square.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Square"/>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sqButtonActionPerformed"/>

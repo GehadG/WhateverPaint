@@ -72,6 +72,7 @@ public class ToolBoxs extends javax.swing.JPanel {
         rect.setBackground(new java.awt.Color(83, 83, 83));
         rect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-rectangle.png"))); // NOI18N
         rect.setToolTipText("Rectangle");
+        rect.setOpaque(false);
         rect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rectActionPerformed(evt);
@@ -81,6 +82,7 @@ public class ToolBoxs extends javax.swing.JPanel {
         ellipse.setBackground(new java.awt.Color(83, 83, 83));
         ellipse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-ellipse.png"))); // NOI18N
         ellipse.setToolTipText("Ellipse");
+        ellipse.setOpaque(false);
         ellipse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ellipseActionPerformed(evt);
@@ -90,6 +92,7 @@ public class ToolBoxs extends javax.swing.JPanel {
         circle.setBackground(new java.awt.Color(83, 83, 83));
         circle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-circle.png"))); // NOI18N
         circle.setToolTipText("Circle");
+        circle.setOpaque(false);
         circle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 circleActionPerformed(evt);
@@ -99,6 +102,7 @@ public class ToolBoxs extends javax.swing.JPanel {
         freeHand.setBackground(new java.awt.Color(83, 83, 83));
         freeHand.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-freehand.png"))); // NOI18N
         freeHand.setToolTipText("Free Hand");
+        freeHand.setOpaque(false);
         freeHand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 freeHandActionPerformed(evt);
@@ -108,6 +112,7 @@ public class ToolBoxs extends javax.swing.JPanel {
         line.setBackground(new java.awt.Color(83, 83, 83));
         line.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-line.png"))); // NOI18N
         line.setToolTipText("Line");
+        line.setOpaque(false);
         line.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lineActionPerformed(evt);
@@ -117,6 +122,7 @@ public class ToolBoxs extends javax.swing.JPanel {
         isoTrig.setBackground(new java.awt.Color(83, 83, 83));
         isoTrig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-triangle3.png"))); // NOI18N
         isoTrig.setToolTipText("Triangle");
+        isoTrig.setOpaque(false);
         isoTrig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 isoTrigActionPerformed(evt);
@@ -126,6 +132,7 @@ public class ToolBoxs extends javax.swing.JPanel {
         rightTrig.setBackground(new java.awt.Color(83, 83, 83));
         rightTrig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-triangle.png"))); // NOI18N
         rightTrig.setToolTipText("Right Triangle");
+        rightTrig.setOpaque(false);
         rightTrig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rightTrigActionPerformed(evt);
@@ -135,6 +142,7 @@ public class ToolBoxs extends javax.swing.JPanel {
         sqButton.setBackground(new java.awt.Color(83, 83, 83));
         sqButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-square.png"))); // NOI18N
         sqButton.setToolTipText("Square");
+        sqButton.setOpaque(false);
         sqButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sqButtonActionPerformed(evt);

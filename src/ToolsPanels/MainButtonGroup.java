@@ -46,36 +46,44 @@ public class MainButtonGroup extends javax.swing.JPanel {
         setBackground(new java.awt.Color(40, 40, 40));
         setForeground(new java.awt.Color(40, 40, 40));
 
-        jButton1.setBackground(new java.awt.Color(83, 83, 83));
-        jButton1.setForeground(new java.awt.Color(83, 83, 83));
+        jButton1.setBackground(new java.awt.Color(40, 40, 40));
+        jButton1.setForeground(new java.awt.Color(40, 40, 40));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/open.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(83, 83, 83));
-        jButton2.setForeground(new java.awt.Color(83, 83, 83));
+        jButton2.setBackground(new java.awt.Color(40, 40, 40));
+        jButton2.setForeground(new java.awt.Color(40, 40, 40));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/80.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setOpaque(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        clear.setBackground(new java.awt.Color(83, 83, 83));
-        clear.setForeground(new java.awt.Color(83, 83, 83));
+        clear.setBackground(new java.awt.Color(40, 40, 40));
+        clear.setForeground(new java.awt.Color(40, 40, 40));
         clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/newpage.png"))); // NOI18N
+        clear.setBorder(null);
+        clear.setOpaque(false);
         clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearActionPerformed(evt);
             }
         });
 
-        select.setBackground(new java.awt.Color(83, 83, 83));
-        select.setForeground(new java.awt.Color(83, 83, 83));
+        select.setBackground(new java.awt.Color(40, 40, 40));
+        select.setForeground(new java.awt.Color(40, 40, 40));
         select.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/select.png"))); // NOI18N
+        select.setBorder(null);
+        select.setOpaque(false);
         select.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectActionPerformed(evt);

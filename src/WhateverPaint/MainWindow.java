@@ -40,6 +40,9 @@ public class MainWindow extends javax.swing.JFrame {
     }
 } );
         
+        canvas1.setFocusable(true);
+               canvas1.requestFocusInWindow();
+        
         
     }
  public static void setPosition(String s)
@@ -71,6 +74,11 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                formKeyReleased(evt);
+            }
+        });
 
         canvas1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -78,6 +86,11 @@ public class MainWindow extends javax.swing.JFrame {
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 canvas1MouseReleased(evt);
+            }
+        });
+        canvas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                canvas1KeyPressed(evt);
             }
         });
 
@@ -224,6 +237,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void strokerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_strokerStateChanged
         Canvas.setStroke(stroker.getValue());
+        for(Shapes s: Canvas.prevShapes)
+        {
+            if(s.isSelected())
+                s.setPenSize(stroker.getValue());
+        }
+        canvas1.repaint();
     }//GEN-LAST:event_strokerStateChanged
 
     private void canvas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseClicked
@@ -233,6 +252,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void canvas1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseReleased
 old.doClick();
 editBox1.undo.setEnabled(true);
+canvas1.setFocusable(true);
+               canvas1.requestFocusInWindow();
     }//GEN-LAST:event_canvas1MouseReleased
 
     private void editBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editBox1MouseClicked
@@ -246,6 +267,16 @@ editBox1.undo.setEnabled(true);
     private void editBox1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editBox1MouseMoved
 
     }//GEN-LAST:event_editBox1MouseMoved
+
+    private void canvas1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_canvas1KeyPressed
+        
+    }//GEN-LAST:event_canvas1KeyPressed
+
+    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
+        System.out.println(evt.getKeyCode());
+        if(evt.getKeyCode()==46)
+            System.out.println("hi");
+    }//GEN-LAST:event_formKeyReleased
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

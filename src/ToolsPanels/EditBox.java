@@ -6,6 +6,7 @@
 package ToolsPanels;
 
 import Shapes.Filler;
+import Shapes.Mover;
 import Shapes.Picker;
 import Shapes.Rectangle;
 import Shapes.Shapes;
@@ -50,36 +51,54 @@ public class EditBox extends javax.swing.JPanel {
         undo = new javax.swing.JButton();
         redo = new javax.swing.JButton();
         picker = new javax.swing.JButton();
+        move = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(40, 40, 40));
         setMaximumSize(new java.awt.Dimension(135, 80));
 
+        fill.setBackground(null);
         fill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/fill-color.png"))); // NOI18N
+        fill.setBorder(null);
+        fill.setOpaque(false);
         fill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fillActionPerformed(evt);
             }
         });
 
+        undo.setBackground(null);
         undo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/edit-undo.png"))); // NOI18N
+        undo.setOpaque(false);
         undo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 undoActionPerformed(evt);
             }
         });
 
-        redo.setBackground(new java.awt.Color(83, 83, 83));
+        redo.setBackground(null);
         redo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/edit-redo.png"))); // NOI18N
+        redo.setOpaque(false);
         redo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 redoActionPerformed(evt);
             }
         });
 
+        picker.setBackground(null);
         picker.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/color-picker.png"))); // NOI18N
+        picker.setOpaque(false);
         picker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pickerActionPerformed(evt);
+            }
+        });
+
+        move.setBackground(null);
+        move.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/transform-move.png"))); // NOI18N
+        move.setOpaque(false);
+        move.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moveActionPerformed(evt);
             }
         });
 
@@ -93,8 +112,10 @@ public class EditBox extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(undo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(move, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(undo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(redo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -102,18 +123,25 @@ public class EditBox extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(redo)
-                    .addComponent(fill)
-                    .addComponent(picker)
-                    .addComponent(undo))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(redo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(picker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(undo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void fillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fillActionPerformed
 Canvas.setShape(new Filler());
-        MainWindow.old=fill;      
+        MainWindow.old=fill;  
+         for(Shapes s: Canvas.prevShapes)
+        {
+            if(s.isSelected())
+                s.setFillColor(ColorBoxes.bgColor.getBackground());
+        }
+        cc.repaint();
     }//GEN-LAST:event_fillActionPerformed
 
     private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
@@ -152,9 +180,15 @@ Canvas.setShape(new Filler());
         MainWindow.old=picker; 
     }//GEN-LAST:event_pickerActionPerformed
 
+    private void moveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveActionPerformed
+     Canvas.setShape(new Mover());
+        MainWindow.old=move; 
+    }//GEN-LAST:event_moveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton fill;
+    private javax.swing.JButton move;
     private javax.swing.JButton picker;
     public static javax.swing.JButton redo;
     public static javax.swing.JButton undo;

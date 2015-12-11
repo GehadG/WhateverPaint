@@ -29,13 +29,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import Shapes.Selector;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
         
 
 /**
  *
  * @author Gehad
  */
-public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
+public class Canvas extends JPanel implements MouseListener,MouseMotionListener,KeyListener{
     
     private static Shapes s = new FreeHand();
     public static boolean whichColor=false;
@@ -54,6 +56,9 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener{
         setBackground(color.white);
         addMouseListener(this);
         addMouseMotionListener(this);
+        addKeyListener(this);
+            
+        
      
     }
 
@@ -161,10 +166,15 @@ private int x,y;
         
         else if(s instanceof Mover)
         {Mover temp= new Mover();
+        
            for(Shapes s2: prevShapes)
-           {    if(s2.isSelected())
+           {    if(s2.isSelected()||s2.containsPoint(e.getPoint())){
                temp=s2.move(e.getPoint(),(Mover) s);
+               
            }
+           
+           }
+         
            s=temp;
         }
         else if(s instanceof Resizer)
@@ -217,6 +227,35 @@ private int x,y;
 
     public static void setPrevShapes(ArrayList<Shapes> prevShapes) {
         Canvas.prevShapes = prevShapes;
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+ // System.out.println("Pressed " + e.getKeyCode());
+        if(e.getKeyCode()==127)
+        {ArrayList<Shapes> temp= new ArrayList();
+            for(Shapes ss:prevShapes)
+            {
+                if(!ss.isSelected()){
+                    
+                    temp.add(ss);
+                }
+                
+                
+            }
+            prevShapes=temp;
+            repaint();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
