@@ -5,14 +5,15 @@
  */
 package ToolsPanels;
 
-import Shapes.Filler;
+import Tools.Intersection;
+import Tools.Filler;
 import Shapes.Line;
 import Shapes.FreeHand;
 import Shapes.IsocelesTriangle;
-import Shapes.Mover;
-import Shapes.Picker;
+import Tools.Mover;
+import Tools.Picker;
 import Shapes.Rectangle;
-import Shapes.Resizer;
+import Tools.Resizer;
 import Shapes.RightTriangle;
 import Shapes.Shapes;
 import WhateverPaint.MainWindow;
@@ -28,9 +29,11 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
-import Shapes.Selector;
+import Tools.Selector;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.geom.Area;
         
 
 /**
@@ -46,8 +49,9 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener,
         Canvas.s = s;
     }
     public static ArrayList<Shapes> prevShapes = new ArrayList();
+    public static ArrayList <Intersection> intersects = new ArrayList();
     private boolean flag=false;
-    
+    private Point point;
     private static int stroke;
     private static Color color = Color.BLACK;
     private static Color bgColor= new Color(255, 255, 255, 0);
@@ -80,8 +84,12 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener,
         }
         
           s.drawShape(g);
-       
-
+       Graphics2D g2 =(Graphics2D) g;
+        for(Intersection i :intersects)
+        {
+            g2.setPaint(i.getColor());
+            g2.fill(i.getArea());
+        }
     }
     
     @Override
@@ -94,7 +102,7 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener,
       repaint();
        
     }
-private int x,y;
+
     @Override
     public void mousePressed(MouseEvent e) {
         flag=false;
@@ -104,17 +112,46 @@ private int x,y;
       s.setPenSize(stroke);
       
        if(s instanceof Filler)
+        {   boolean intersect =false; 
+        
+        ArrayList<Shapes> within = new ArrayList();
+        for (Shapes ss:prevShapes)
         {
+            if(ss.containsPoint(e.getPoint()))
+                within.add(ss);
+        }
+           // System.out.println(within.size());
+        if(within.size()<2)
+            intersect = false;
+        else
+            intersect = true;
+        if(!intersect){
             for(Shapes ss:prevShapes)
-            {
+            {    
                 if(ss.containsPoint(e.getPoint()))
                 {   
                     ss.setFillColor(bgColor);
                 }
                 
             }
+        }
+        else
+        {Area intersection= new Area(within.get(0).getThisShape());
+         Area check;
+         for(int i=1;i<within.size();i++)
+         {
+             check = new Area(within.get(i).getThisShape());
+             intersection.intersect(check);
+         }
+         Color intersectColor = ColorBoxes.bgColor.getBackground();
+          intersects.add(new Intersection(intersection,intersectColor));
+        }
             repaint();
         }
+       else if (s instanceof Mover)
+       {
+           point=e.getPoint();
+       }
        else if(s instanceof Picker)
        {
             try {
@@ -165,17 +202,19 @@ private int x,y;
         }
         
         else if(s instanceof Mover)
-        {Mover temp= new Mover();
+        {
         
            for(Shapes s2: prevShapes)
-           {    if(s2.isSelected()||s2.containsPoint(e.getPoint())){
-               temp=s2.move(e.getPoint(),(Mover) s);
+           {    if(s2.isSelected()){
+               s2.move(e.getPoint(),point);
                
            }
            
+      
            }
-         
-           s=temp;
+           point.x=e.getX();
+        point.y=e.getY();
+           
         }
         else if(s instanceof Resizer)
         {

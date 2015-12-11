@@ -5,12 +5,17 @@
  */
 package Shapes;
 
+import Tools.Resizer;
+import ToolsPanels.Canvas;
+import ToolsPanels.ColorBoxes;
+import Tools.Intersection;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Shape;
+import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import javax.swing.JComponent;
@@ -30,6 +35,7 @@ public abstract class Shapes extends JComponent{
     private Color fillColor= new Color(0,0,0,0f);
     private Shape thisShape;
     private ArrayList<Rectangle2D> resizePoints= new ArrayList();
+
     public boolean isSelected() {
         return selected;
     }
@@ -136,7 +142,7 @@ public abstract class Shapes extends JComponent{
          drawBoundPoint((int)bound.getMaxX(),(int)bound.getMaxY(), g);
          
      }
-     public abstract Mover move(Point p,Mover m);
+     public abstract void move(Point p,Point origin);
      public abstract void resize(Point p,Resizer r);
-    
+ 
 }

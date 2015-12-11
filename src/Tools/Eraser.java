@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Shapes;
+package Tools;
+import Shapes.FreeHand;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.RenderingHints;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
@@ -25,6 +27,8 @@ public class Eraser extends FreeHand {
     public void drawShape(Graphics g) {
         
        Graphics2D g2 = (Graphics2D) g;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+        RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(getPenSize()));
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_IN, 0.0f));

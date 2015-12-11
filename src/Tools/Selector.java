@@ -1,6 +1,7 @@
-package Shapes;
+package Tools;
 
 
+import Shapes.Shapes;
 import Shapes.Shapes;
 import ToolsPanels.Canvas;
 import java.awt.AlphaComposite;
@@ -78,15 +79,16 @@ public class Selector extends Shapes {
                s.setSelected(false);
     }
 
-    @Override
-    public Mover move(Point p,Mover m) {
-      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    return m;
-    }
+    
 
     @Override
     public void resize(Point p, Resizer r) {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void move(Point p, Point origin) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
   

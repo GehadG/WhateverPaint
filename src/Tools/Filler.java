@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Shapes;
+package Tools;
 
+import Shapes.Shapes;
 import java.awt.Graphics;
 import java.awt.Point;
 
@@ -20,8 +21,8 @@ public class Filler extends Shapes {
     }
 
     @Override
-    public Mover move(Point p, Mover m) {
-return m;       
+    public void move(Point p, Point m) {
+  
 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

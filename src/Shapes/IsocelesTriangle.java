@@ -5,11 +5,13 @@
  */
 package Shapes;
 
+import Tools.Resizer;
 import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
+import java.awt.RenderingHints;
 
 /**
  *
@@ -28,6 +30,8 @@ private int x1,x2,x3,y1,y2,y3;
     public void drawShape(Graphics g) {
         
         Graphics2D g2 = (Graphics2D) g;
+         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+        RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(getColor());
          x1=getxPos();
          x2=x1-(int)getWidths();
@@ -56,18 +60,17 @@ private int x1,x2,x3,y1,y2,y3;
     }
 
     @Override
-    public Mover move(Point p,Mover m) {
-        int baseX=m.getxPos();
-        int baseY=m.getyPos();
+    public void move(Point p,Point o) {
+       int baseX=(int) o.getX();
+        int baseY=(int) o.getY();
         int dx = (int) (p.getX() - baseX);
         int dy = (int) (p.getY() - baseY);
         setxPos(getxPos()+dx);
         setyPos(getyPos()+dy);
-                    m.setxPos(baseX+dx);
-                    m.setyPos(baseY+dy);
-                    return m;
+                  
         
     }
+    
 
   
 

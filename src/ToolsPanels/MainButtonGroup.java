@@ -7,7 +7,7 @@ package ToolsPanels;
 
 import FileFactory.readingXml;
 import FileFactory.savingXML;
-import Shapes.Selector;
+import Tools.Selector;
 import Shapes.Shapes;
 import WhateverPaint.MainWindow;
 import java.util.ArrayList;
@@ -122,10 +122,11 @@ public class MainButtonGroup extends javax.swing.JPanel {
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
 ArrayList<Shapes> prevShapes2 = new ArrayList();
+Canvas.intersects.clear();
         Canvas.setPrevShapes(prevShapes2);
         cc.repaint();
         EditBox.undo.setEnabled(false);
-        EditBox.redo.setEnabled(false);        // TODO add your handling code here:
+        EditBox.redo.setEnabled(false);        
     }//GEN-LAST:event_clearActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

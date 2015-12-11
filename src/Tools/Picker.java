@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Shapes;
+package Tools;
 
+import Shapes.Shapes;
 import java.awt.Graphics;
 import java.awt.Point;
 
@@ -12,7 +13,7 @@ import java.awt.Point;
  *
  * @author Gehad
  */
-public class Mover extends Shapes {
+public class Picker extends Shapes{
 
     @Override
     public void drawShape(Graphics g) {
@@ -20,16 +21,14 @@ public class Mover extends Shapes {
     }
 
     @Override
-    public Mover move(Point p,Mover m) {
-       return m;
+    public void move(Point p,Point o) {
+        
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 
     @Override
     public void resize(Point p, Resizer r) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
     
 }

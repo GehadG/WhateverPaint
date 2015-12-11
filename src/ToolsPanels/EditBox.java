@@ -5,9 +5,9 @@
  */
 package ToolsPanels;
 
-import Shapes.Filler;
-import Shapes.Mover;
-import Shapes.Picker;
+import Tools.Filler;
+import Tools.Mover;
+import Tools.Picker;
 import Shapes.Rectangle;
 import Shapes.Shapes;
 import WhateverPaint.MainWindow;
