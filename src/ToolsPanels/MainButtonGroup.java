@@ -10,6 +10,7 @@ import FileFactory.savingXML;
 import Tools.Selector;
 import Shapes.Shapes;
 import WhateverPaint.MainWindow;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -151,6 +152,7 @@ Canvas.intersects.clear();
         JFileChooser fileChooser = new JFileChooser();
 fileChooser.setDialogTitle("Specify a file to save");   
  fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml", ".XML",".xml"));
+
 int userSelection = fileChooser.showSaveDialog(null);
  
 if (userSelection == JFileChooser.APPROVE_OPTION) {

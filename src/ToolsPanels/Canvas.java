@@ -12,7 +12,7 @@ import Shapes.FreeHand;
 import Shapes.IsocelesTriangle;
 import Tools.Mover;
 import Tools.Picker;
-import Shapes.Rectangle;
+
 import Tools.Resizer;
 import Shapes.RightTriangle;
 import Shapes.Shapes;
@@ -30,6 +30,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import Tools.Selector;
+import UndoRedoManager.*;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -168,7 +169,10 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener,
 
     @Override
     public void mouseReleased(MouseEvent e) {
-       
+        ScreenShot temp = new ScreenShot();
+        temp.setShapes(prevShapes);
+        temp.setIntersections(intersects);
+       Manager.undoStack.push(temp);
         if(flag&&!(s instanceof Selector)&&!(s instanceof Mover)&&!(s instanceof Resizer)&&!(s instanceof Filler)&&!(s instanceof Picker))
         {
       prevShapes.add(s);

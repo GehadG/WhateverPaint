@@ -10,6 +10,8 @@ import Tools.Mover;
 import Tools.Picker;
 import Shapes.Rectangle;
 import Shapes.Shapes;
+import UndoRedoManager.Manager;
+import UndoRedoManager.ScreenShot;
 import WhateverPaint.MainWindow;
 import java.util.ArrayList;
 import java.util.Stack;
@@ -145,34 +147,34 @@ Canvas.setShape(new Filler());
     }//GEN-LAST:event_fillActionPerformed
 
     private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
-     if (!Canvas.getPrevShapes().isEmpty()){
-          undo.setEnabled(true);
-          flag1++;
-          prevShapes2 = Canvas.getPrevShapes();
-          temp1 = prevShapes2.get(prevShapes2.size()-1);
-          redoo.push(temp1);
-          prevShapes2.remove(prevShapes2.size()-1);
-          
-          Canvas.setPrevShapes(prevShapes2);
-          cc.repaint();
-          redo.setEnabled(true);
-          
-      } if (prevShapes2.size()==0) 
-        {undo.setEnabled(false);
-        } 
+     if(Manager.undoStack.isEmpty()==false)
+     {
+         ScreenShot temp = Manager.undoStack.pop();
+         Manager.redoStack.push(temp);
+         redo.setEnabled(true);
+        
+         Canvas.prevShapes.addAll(temp.getShapes());
+         System.out.println(temp.getShapes().size());
+        Canvas.intersects.clear();
+         Canvas.intersects = temp.getIntersections();
+         if(Manager.undoStack.isEmpty())
+             undo.setEnabled(false);
+     }
+     cc.repaint();
+     
     }//GEN-LAST:event_undoActionPerformed
 
     private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
-        temp2 = redoo.pop();
-        prevShapes2.add(temp2);
-        undo.setEnabled(true);
-        Canvas.setPrevShapes(prevShapes2);
-        flag2++;
-        cc.repaint();
-        System.out.println(prevShapes2.size());
-        if (flag1==flag2){
-            redo.setEnabled(false);
-        }
+        if(Manager.redoStack.isEmpty()==false)
+     {undo.setEnabled(true);
+         ScreenShot temp = Manager.redoStack.pop();
+         Manager.undoStack.push(temp);
+         Canvas.prevShapes= temp.getShapes();
+         Canvas.intersects = temp.getIntersections();
+         if(Manager.redoStack.isEmpty())
+             redo.setEnabled(false);
+     }
+     cc.repaint();
     }//GEN-LAST:event_redoActionPerformed
 
     private void pickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickerActionPerformed
