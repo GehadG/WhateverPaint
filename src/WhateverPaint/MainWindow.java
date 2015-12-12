@@ -8,6 +8,7 @@ package WhateverPaint;
 import Shapes.Shapes;
 import Tools.Resizer;
 import ToolsPanels.Canvas;
+import ToolsPanels.CustomButtonStyle;
 import java.awt.Color;
 import java.awt.Graphics;
 import static java.awt.SystemColor.menu;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JMenu;
 import javax.swing.plaf.basic.BasicMenuBarUI;
 
 /**
@@ -71,7 +73,9 @@ public class MainWindow extends javax.swing.JFrame {
         stroker = new javax.swing.JSlider();
         menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
@@ -185,11 +189,91 @@ public class MainWindow extends javax.swing.JFrame {
 
         jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("File");
-        menu.add(jMenu1);
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                released(evt);
+            }
+        });
 
-        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu2.setText("Edit");
-        menu.add(jMenu2);
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("Open");
+        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                released(evt);
+            }
+        });
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Save");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                released(evt);
+            }
+        });
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem3.setText("Exit");
+        jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                entered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                released(evt);
+            }
+        });
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        menu.add(jMenu1);
 
         setJMenuBar(menu);
 
@@ -239,6 +323,34 @@ public class MainWindow extends javax.swing.JFrame {
     private void strokerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_strokerStateChanged
         Canvas.setStroke(stroker.getValue());
     }//GEN-LAST:event_strokerStateChanged
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        mainButtonGroup1.open.doClick();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void exited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exited
+     
+    }//GEN-LAST:event_exited
+
+    private void entered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entered
+      
+    }//GEN-LAST:event_entered
+
+    private void released(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_released
+
+    }//GEN-LAST:event_released
+
+    private void pressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pressed
+       
+    }//GEN-LAST:event_pressed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        mainButtonGroup1.save.doClick();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -278,7 +390,9 @@ public class MainWindow extends javax.swing.JFrame {
     private ToolsPanels.ColorStrip colorStrip1;
     private ToolsPanels.EditBox editBox1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private ToolsPanels.MainButtonGroup mainButtonGroup1;

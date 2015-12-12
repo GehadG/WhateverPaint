@@ -41,8 +41,8 @@ public class MainButtonGroup extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        open = new javax.swing.JButton();
+        save = new javax.swing.JButton();
         clear = new javax.swing.JButton();
         select = new javax.swing.JButton();
 
@@ -50,13 +50,13 @@ public class MainButtonGroup extends javax.swing.JPanel {
         setForeground(new java.awt.Color(40, 40, 40));
         setOpaque(false);
 
-        jButton1.setBackground(new java.awt.Color(40, 40, 40));
-        jButton1.setForeground(new java.awt.Color(40, 40, 40));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Folder-Open-48.png"))); // NOI18N
-        jButton1.setToolTipText("Load");
-        jButton1.setBorder(null);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        open.setBackground(new java.awt.Color(40, 40, 40));
+        open.setForeground(new java.awt.Color(40, 40, 40));
+        open.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Folder-Open-48.png"))); // NOI18N
+        open.setToolTipText("Load");
+        open.setBorder(null);
+        open.setContentAreaFilled(false);
+        open.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 clearMouseEntered(evt);
             }
@@ -67,19 +67,19 @@ public class MainButtonGroup extends javax.swing.JPanel {
                 clearMousePressed(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        open.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                openActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(40, 40, 40));
-        jButton2.setForeground(new java.awt.Color(40, 40, 40));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Save As-48.png"))); // NOI18N
-        jButton2.setToolTipText("Save As");
-        jButton2.setBorder(null);
-        jButton2.setContentAreaFilled(false);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        save.setBackground(new java.awt.Color(40, 40, 40));
+        save.setForeground(new java.awt.Color(40, 40, 40));
+        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Save As-48.png"))); // NOI18N
+        save.setToolTipText("Save As");
+        save.setBorder(null);
+        save.setContentAreaFilled(false);
+        save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 clearMouseEntered(evt);
             }
@@ -90,9 +90,9 @@ public class MainButtonGroup extends javax.swing.JPanel {
                 clearMousePressed(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                saveActionPerformed(evt);
             }
         });
 
@@ -149,9 +149,9 @@ public class MainButtonGroup extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(open, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(select, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                 .addContainerGap())
@@ -159,8 +159,8 @@ public class MainButtonGroup extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(select, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(open, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(clear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -180,7 +180,7 @@ public class MainButtonGroup extends javax.swing.JPanel {
         EditBox.redo.setEnabled(false);
     }//GEN-LAST:event_clearActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openActionPerformed
         JFileChooser chooser = new JFileChooser();
         chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml", ".XML", ".xml"));
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -196,9 +196,9 @@ public class MainButtonGroup extends javax.swing.JPanel {
 
                 break;
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_openActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Specify a file to save");
         fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml", ".XML", ".xml"));
@@ -215,7 +215,7 @@ public class MainButtonGroup extends javax.swing.JPanel {
 
             savingXML save = new savingXML(Canvas.prevShapes, path);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_saveActionPerformed
 
     private void clearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseExited
         JButton Button = (JButton) evt.getSource();
@@ -237,9 +237,9 @@ public class MainButtonGroup extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton clear;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton clear;
+    public javax.swing.JButton open;
+    public javax.swing.JButton save;
     private javax.swing.JButton select;
     // End of variables declaration//GEN-END:variables
 }
