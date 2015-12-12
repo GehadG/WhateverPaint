@@ -57,13 +57,13 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
     private static Color color = Color.BLACK;
     private static Color bgColor = new Color(255, 255, 255, 0);
     private Color transparent = new Color(255, 255, 255, 0);
-    public static ArrayList<Shapes> copyList=new ArrayList<Shapes>();
-    public static Stack<ArrayList<Shapes>> undost=new Stack();
-    public static Stack<ArrayList<Shapes>> redost=new Stack();
-    
+    public static ArrayList<Shapes> copyList = new ArrayList<Shapes>();
+    public static Stack<ArrayList<Shapes>> undost = new Stack();
+    public static Stack<ArrayList<Shapes>> redost = new Stack();
+
     public Canvas() {
 
-       // undost.push(prevShapes);
+        
         setBackground(color.white);
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -108,13 +108,13 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         s.setColor(color);
         s.setPenSize(stroke);
         /*ScreenShot temp = new ScreenShot();
-        temp.setShapes(prevShapes);
-        temp.setIntersections(intersects);
-        if (Manager.undoStack.contains(temp) == false) {
-            Manager.undoStack.push(temp);
-            System.out.println(Manager.undoStack);
-        }
-        System.out.println(temp.getShapes().size());*/
+         temp.setShapes(prevShapes);
+         temp.setIntersections(intersects);
+         if (Manager.undoStack.contains(temp) == false) {
+         Manager.undoStack.push(temp);
+         System.out.println(Manager.undoStack);
+         }
+         System.out.println(temp.getShapes().size());*/
         if (s instanceof Filler) {
             boolean intersect = false;
 
@@ -167,7 +167,6 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 
         if (flag && !(s instanceof Selector) && !(s instanceof Mover) && !(s instanceof Resizer) && !(s instanceof Filler) && !(s instanceof Picker)) {
             prevShapes.add(s);
-            
 
         } else {
 

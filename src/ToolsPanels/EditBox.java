@@ -89,6 +89,7 @@ public class EditBox extends javax.swing.JPanel {
         });
 
         undo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/return13.png"))); // NOI18N
+        undo.setToolTipText("Undo");
         undo.setContentAreaFilled(false);
         undo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -111,6 +112,7 @@ public class EditBox extends javax.swing.JPanel {
         });
 
         redo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/redo.png"))); // NOI18N
+        redo.setToolTipText("Redo");
         redo.setContentAreaFilled(false);
         redo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -179,6 +181,7 @@ public class EditBox extends javax.swing.JPanel {
         });
 
         erase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Data-Erase-32.png"))); // NOI18N
+        erase.setToolTipText("Eraser");
         erase.setContentAreaFilled(false);
         erase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -224,12 +227,12 @@ public class EditBox extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(erase, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(undo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(redo, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
+                    .addComponent(redo, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,8 +256,9 @@ public class EditBox extends javax.swing.JPanel {
         if (!Canvas.undost.isEmpty()) {
             Canvas.prevShapes = new ArrayList();
             Canvas.redost.push(Canvas.undost.pop());
-            if (Canvas.undost.isEmpty())
+            if (Canvas.undost.isEmpty()) {
                 cc.repaint();
+            }
             Canvas.prevShapes.addAll(Canvas.undost.peek());
             cc.repaint();
             System.out.println(Canvas.undost.size());

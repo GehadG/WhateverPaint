@@ -55,13 +55,13 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="fill" max="32767" attributes="0"/>
-                  <Component id="move" pref="47" max="32767" attributes="0"/>
+                  <Component id="move" pref="42" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="erase" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="undo" min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="redo" pref="49" max="32767" attributes="0"/>
+                  <Component id="redo" pref="45" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -97,6 +97,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resources/return13.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Undo"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -115,6 +116,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resources/redo.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Redo"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -165,6 +167,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resources/Data-Erase-32.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Eraser"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>

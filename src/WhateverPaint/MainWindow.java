@@ -23,11 +23,12 @@ import javax.swing.plaf.basic.BasicMenuBarUI;
  * @author Gehad
  */
 public class MainWindow extends javax.swing.JFrame {
-
+    
     public static JButton old;
-
+    
     public MainWindow() {
         initComponents();
+        this.setTitle("Paint");
         editBox1.setCanvas(canvas1);
         mainButtonGroup1.setCc(canvas1);
         setLocationRelativeTo(null);
@@ -39,12 +40,12 @@ public class MainWindow extends javax.swing.JFrame {
                 g.fillRect(0, 0, c.getWidth(), c.getHeight());
             }
         });
-
+        
         canvas1.setFocusable(true);
         canvas1.requestFocusInWindow();
-
+        setIcon();        
     }
-
+    
     public static void setPosition(String s) {
         position.setText(s);
     }
@@ -260,7 +261,7 @@ public class MainWindow extends javax.swing.JFrame {
         Canvas.setShape(new Resizer());
         old = Resize;
     }//GEN-LAST:event_ResizeActionPerformed
-
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -310,4 +311,8 @@ public class MainWindow extends javax.swing.JFrame {
     private ToolsPanels.ToolBoxs toolBoxs1;
     // End of variables declaration//GEN-END:variables
 
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon256.png")));
+    }
+    
 }
