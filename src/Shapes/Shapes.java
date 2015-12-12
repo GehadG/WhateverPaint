@@ -144,5 +144,9 @@ public abstract class Shapes extends JComponent{
      }
      public abstract void move(Point p,Point origin);
      public abstract void resize(Point p,Resizer r);
- 
+    @Override
+ public String toString()
+ {
+     return getClass().toString();
+ }
 }

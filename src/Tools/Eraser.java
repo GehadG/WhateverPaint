@@ -31,7 +31,7 @@ public class Eraser extends FreeHand {
         RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(getPenSize()));
-        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_IN, 0.0f));
+       
             if(points.size()>1)
            {
                for(int i=0;i<points.size()-1;i++)
@@ -58,7 +58,7 @@ public class Eraser extends FreeHand {
           Rectangle2D bound = new Rectangle2D.Double();
           bound.setFrame(minX, minY, maxX-minX, maxY-minY);
           setThisShape(bound);
-          g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
+         
     }
         
     }

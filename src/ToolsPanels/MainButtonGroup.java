@@ -12,6 +12,7 @@ import Shapes.Shapes;
 import WhateverPaint.MainWindow;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -46,12 +47,25 @@ public class MainButtonGroup extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(40, 40, 40));
         setForeground(new java.awt.Color(40, 40, 40));
+        setOpaque(false);
 
         jButton1.setBackground(new java.awt.Color(40, 40, 40));
         jButton1.setForeground(new java.awt.Color(40, 40, 40));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/open.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Folder-Open-48.png"))); // NOI18N
         jButton1.setBorder(null);
+        jButton1.setContentAreaFilled(false);
         jButton1.setOpaque(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                clearMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                clearMousePressed(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -60,9 +74,21 @@ public class MainButtonGroup extends javax.swing.JPanel {
 
         jButton2.setBackground(new java.awt.Color(40, 40, 40));
         jButton2.setForeground(new java.awt.Color(40, 40, 40));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/80.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Save As-48.png"))); // NOI18N
         jButton2.setBorder(null);
+        jButton2.setContentAreaFilled(false);
         jButton2.setOpaque(false);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                clearMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                clearMousePressed(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -71,9 +97,20 @@ public class MainButtonGroup extends javax.swing.JPanel {
 
         clear.setBackground(new java.awt.Color(40, 40, 40));
         clear.setForeground(new java.awt.Color(40, 40, 40));
-        clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/newpage.png"))); // NOI18N
+        clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Item-New-48.png"))); // NOI18N
         clear.setBorder(null);
-        clear.setOpaque(false);
+        clear.setContentAreaFilled(false);
+        clear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                clearMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                clearMousePressed(evt);
+            }
+        });
         clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearActionPerformed(evt);
@@ -82,9 +119,21 @@ public class MainButtonGroup extends javax.swing.JPanel {
 
         select.setBackground(new java.awt.Color(40, 40, 40));
         select.setForeground(new java.awt.Color(40, 40, 40));
-        select.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/select.png"))); // NOI18N
+        select.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Rectangle-Selection-48.png"))); // NOI18N
         select.setBorder(null);
+        select.setContentAreaFilled(false);
         select.setOpaque(false);
+        select.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                clearMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                clearMousePressed(evt);
+            }
+        });
         select.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectActionPerformed(evt);
@@ -102,15 +151,15 @@ public class MainButtonGroup extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(select, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(select, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(select, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(select, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(clear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -168,6 +217,24 @@ if (userSelection == JFileChooser.APPROVE_OPTION) {
     savingXML save = new savingXML(Canvas.prevShapes,path );
 }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void clearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseExited
+          JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.exit(Button);
+    }//GEN-LAST:event_clearMouseExited
+
+    private void clearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseEntered
+           JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.release(Button);
+    }//GEN-LAST:event_clearMouseEntered
+
+    private void clearMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMousePressed
+         JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.press(Button);
+    }//GEN-LAST:event_clearMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -58,6 +58,7 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener,
     private static Color bgColor= new Color(255, 255, 255, 0);
     private Color transparent= new Color(255, 255, 255, 0);
     public Canvas() {
+        
         setBackground(color.white);
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -111,7 +112,15 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener,
       s.setyPos(e.getY());
       s.setColor(color);
       s.setPenSize(stroke);
-      
+      ScreenShot temp = new ScreenShot();
+        temp.setShapes(prevShapes);
+        temp.setIntersections(intersects);
+        if(Manager.undoStack.contains(temp)==false)
+        {System.out.println("a7aa");
+       Manager.undoStack.push(temp);
+            
+        }
+        System.out.println(temp.getShapes().size());
        if(s instanceof Filler)
         {   boolean intersect =false; 
         
@@ -169,10 +178,7 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener,
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        ScreenShot temp = new ScreenShot();
-        temp.setShapes(prevShapes);
-        temp.setIntersections(intersects);
-       Manager.undoStack.push(temp);
+        
         if(flag&&!(s instanceof Selector)&&!(s instanceof Mover)&&!(s instanceof Resizer)&&!(s instanceof Filler)&&!(s instanceof Picker))
         {
       prevShapes.add(s);

@@ -27,6 +27,7 @@ public class ColorPicker extends javax.swing.JFrame {
     public ColorPicker() {
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Color Picker");
          currently = Color.black;
         ignorer = new Color(83,83,83);
         try {

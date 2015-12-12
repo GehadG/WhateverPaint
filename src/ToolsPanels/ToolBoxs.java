@@ -62,17 +62,30 @@ public class ToolBoxs extends javax.swing.JPanel {
         sqButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(83, 83, 83));
-        setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(83, 83, 83), null));
         setForeground(new java.awt.Color(83, 83, 83));
-        setMaximumSize(new java.awt.Dimension(154, 80));
-        setMinimumSize(new java.awt.Dimension(154, 80));
+        setMaximumSize(new java.awt.Dimension(300, 300));
+        setMinimumSize(new java.awt.Dimension(0, 0));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(154, 80));
 
         rect.setBackground(new java.awt.Color(83, 83, 83));
-        rect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-rectangle.png"))); // NOI18N
+        rect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rect2.png"))); // NOI18N
         rect.setToolTipText("Rectangle");
+        rect.setContentAreaFilled(false);
         rect.setOpaque(false);
+        rect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rightTrigMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rightTrigMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rightTrigMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                rightTrigMouseReleased(evt);
+            }
+        });
         rect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rectActionPerformed(evt);
@@ -80,9 +93,24 @@ public class ToolBoxs extends javax.swing.JPanel {
         });
 
         ellipse.setBackground(new java.awt.Color(83, 83, 83));
-        ellipse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-ellipse.png"))); // NOI18N
+        ellipse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/elii.png"))); // NOI18N
         ellipse.setToolTipText("Ellipse");
+        ellipse.setContentAreaFilled(false);
         ellipse.setOpaque(false);
+        ellipse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rightTrigMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rightTrigMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rightTrigMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                rightTrigMouseReleased(evt);
+            }
+        });
         ellipse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ellipseActionPerformed(evt);
@@ -90,9 +118,24 @@ public class ToolBoxs extends javax.swing.JPanel {
         });
 
         circle.setBackground(new java.awt.Color(83, 83, 83));
-        circle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-circle.png"))); // NOI18N
+        circle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/circular.png"))); // NOI18N
         circle.setToolTipText("Circle");
+        circle.setContentAreaFilled(false);
         circle.setOpaque(false);
+        circle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rightTrigMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rightTrigMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rightTrigMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                rightTrigMouseReleased(evt);
+            }
+        });
         circle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 circleActionPerformed(evt);
@@ -100,9 +143,24 @@ public class ToolBoxs extends javax.swing.JPanel {
         });
 
         freeHand.setBackground(new java.awt.Color(83, 83, 83));
-        freeHand.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-freehand.png"))); // NOI18N
+        freeHand.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/pencil43.png"))); // NOI18N
         freeHand.setToolTipText("Free Hand");
+        freeHand.setContentAreaFilled(false);
         freeHand.setOpaque(false);
+        freeHand.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rightTrigMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rightTrigMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rightTrigMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                rightTrigMouseReleased(evt);
+            }
+        });
         freeHand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 freeHandActionPerformed(evt);
@@ -110,9 +168,24 @@ public class ToolBoxs extends javax.swing.JPanel {
         });
 
         line.setBackground(new java.awt.Color(83, 83, 83));
-        line.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-line.png"))); // NOI18N
+        line.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/pencil154.png"))); // NOI18N
         line.setToolTipText("Line");
+        line.setContentAreaFilled(false);
         line.setOpaque(false);
+        line.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rightTrigMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rightTrigMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rightTrigMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                rightTrigMouseReleased(evt);
+            }
+        });
         line.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lineActionPerformed(evt);
@@ -120,9 +193,24 @@ public class ToolBoxs extends javax.swing.JPanel {
         });
 
         isoTrig.setBackground(new java.awt.Color(83, 83, 83));
-        isoTrig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-triangle3.png"))); // NOI18N
+        isoTrig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/iso22.png"))); // NOI18N
         isoTrig.setToolTipText("Triangle");
+        isoTrig.setContentAreaFilled(false);
         isoTrig.setOpaque(false);
+        isoTrig.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rightTrigMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rightTrigMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rightTrigMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                rightTrigMouseReleased(evt);
+            }
+        });
         isoTrig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 isoTrigActionPerformed(evt);
@@ -130,9 +218,24 @@ public class ToolBoxs extends javax.swing.JPanel {
         });
 
         rightTrig.setBackground(new java.awt.Color(83, 83, 83));
-        rightTrig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-triangle.png"))); // NOI18N
+        rightTrig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rightTrig.png"))); // NOI18N
         rightTrig.setToolTipText("Right Triangle");
+        rightTrig.setContentAreaFilled(false);
         rightTrig.setOpaque(false);
+        rightTrig.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rightTrigMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rightTrigMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rightTrigMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                rightTrigMouseReleased(evt);
+            }
+        });
         rightTrig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rightTrigActionPerformed(evt);
@@ -140,9 +243,24 @@ public class ToolBoxs extends javax.swing.JPanel {
         });
 
         sqButton.setBackground(new java.awt.Color(83, 83, 83));
-        sqButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/draw-square.png"))); // NOI18N
+        sqButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/squ.png"))); // NOI18N
         sqButton.setToolTipText("Square");
+        sqButton.setContentAreaFilled(false);
         sqButton.setOpaque(false);
+        sqButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rightTrigMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rightTrigMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rightTrigMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                rightTrigMouseReleased(evt);
+            }
+        });
         sqButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sqButtonActionPerformed(evt);
@@ -155,43 +273,45 @@ public class ToolBoxs extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rect, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ellipse, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sqButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(circle, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(rect, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sqButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(ellipse, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rightTrig, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(circle, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(line, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(rightTrig, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(isoTrig, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(line, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(freeHand, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(isoTrig, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(freeHand, javax.swing.GroupLayout.PREFERRED_SIZE, 48, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rect)
-                            .addComponent(ellipse)
-                            .addComponent(circle))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(sqButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rightTrig)
-                            .addComponent(isoTrig)
-                            .addComponent(line)
-                            .addComponent(freeHand)))
-                    .addComponent(sqButton))
-                .addGap(0, 9, Short.MAX_VALUE))
+                        .addComponent(ellipse, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(line, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rightTrig, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(circle, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(isoTrig, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(freeHand))))
+                .addGap(4, 4, 4))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -235,6 +355,30 @@ public class ToolBoxs extends javax.swing.JPanel {
         
         MainWindow.old=sqButton;
     }//GEN-LAST:event_sqButtonActionPerformed
+
+    private void rightTrigMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rightTrigMouseExited
+        JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.exit(Button);
+    }//GEN-LAST:event_rightTrigMouseExited
+
+    private void rightTrigMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rightTrigMousePressed
+         JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.press(Button);
+    }//GEN-LAST:event_rightTrigMousePressed
+
+    private void rightTrigMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rightTrigMouseReleased
+        JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.exit(Button);
+    }//GEN-LAST:event_rightTrigMouseReleased
+
+    private void rightTrigMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rightTrigMouseEntered
+           JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.release(Button);
+    }//GEN-LAST:event_rightTrigMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
