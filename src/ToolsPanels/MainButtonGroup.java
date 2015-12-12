@@ -52,9 +52,9 @@ public class MainButtonGroup extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(40, 40, 40));
         jButton1.setForeground(new java.awt.Color(40, 40, 40));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Folder-Open-48.png"))); // NOI18N
+        jButton1.setToolTipText("Load");
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setOpaque(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 clearMouseEntered(evt);
@@ -75,9 +75,9 @@ public class MainButtonGroup extends javax.swing.JPanel {
         jButton2.setBackground(new java.awt.Color(40, 40, 40));
         jButton2.setForeground(new java.awt.Color(40, 40, 40));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Save As-48.png"))); // NOI18N
+        jButton2.setToolTipText("Save As");
         jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
-        jButton2.setOpaque(false);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 clearMouseEntered(evt);
@@ -98,6 +98,7 @@ public class MainButtonGroup extends javax.swing.JPanel {
         clear.setBackground(new java.awt.Color(40, 40, 40));
         clear.setForeground(new java.awt.Color(40, 40, 40));
         clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Item-New-48.png"))); // NOI18N
+        clear.setToolTipText("Clear");
         clear.setBorder(null);
         clear.setContentAreaFilled(false);
         clear.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,9 +121,9 @@ public class MainButtonGroup extends javax.swing.JPanel {
         select.setBackground(new java.awt.Color(40, 40, 40));
         select.setForeground(new java.awt.Color(40, 40, 40));
         select.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Rectangle-Selection-48.png"))); // NOI18N
+        select.setToolTipText("Select");
         select.setBorder(null);
         select.setContentAreaFilled(false);
-        select.setOpaque(false);
         select.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 clearMouseEntered(evt);

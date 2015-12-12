@@ -18,62 +18,55 @@ import java.awt.geom.Line2D;
  * @author Gehad
  */
 public class Line extends Shapes {
- private Line2D line = new Line2D.Double();   
+
+    private Line2D line = new Line2D.Double();
 
     public Line() {
         setThisShape(line);
     }
-    
 
     @Override
     public void drawShape(Graphics g) {
-        
-         Graphics2D g2 = (Graphics2D) g;
-         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-        RenderingHints.VALUE_ANTIALIAS_ON);
+
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(getColor());
         g2.setStroke(new BasicStroke(getPenSize()));
         line.setLine(getxPos(), getyPos(), getWidths(), getLengths());
         g2.draw(line);
         g2.setPaint(getFillColor());
         g2.fill(line);
-        if(isSelected())
+        if (isSelected()) {
             drawBound(g);
-        
-        
+        }
+
     }
 
     @Override
-    public void move(Point p,Point o) {
-       int baseX=(int) o.getX();
-        int baseY=(int) o.getY();
+    public void move(Point p, Point o) {
+        int baseX = (int) o.getX();
+        int baseY = (int) o.getY();
         int dx = (int) (p.getX() - baseX);
         int dy = (int) (p.getY() - baseY);
-        setxPos(getxPos()+dx);
-                    setyPos(getyPos()+dy);
-                    setWidths(getWidths()+dx);
-                    setLengths(getLengths()+dy);
-                    
-                    
-        
+        setxPos(getxPos() + dx);
+        setyPos(getyPos() + dy);
+        setWidths(getWidths() + dx);
+        setLengths(getLengths() + dy);
+
     }
-    
-     
-     @Override
+
+    @Override
     public void drawBound(Graphics g) {
         drawBoundPoint(getxPos(), getyPos(), g);
-        drawBoundPoint((int)getWidths(), (int)getLengths(), g);
-        
-        
+        drawBoundPoint((int) getWidths(), (int) getLengths(), g);
+
     }
+
     @Override
     public void resize(Point p, Resizer r) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setxPos((int) p.getX());
+        setyPos((int) p.getY());
     }
 
-
-
-    
-    
-    
 }

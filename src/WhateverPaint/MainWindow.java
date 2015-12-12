@@ -6,6 +6,7 @@
 package WhateverPaint;
 
 import Shapes.Shapes;
+import Tools.Resizer;
 import ToolsPanels.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -21,34 +22,32 @@ import javax.swing.plaf.basic.BasicMenuBarUI;
  * @author Gehad
  */
 public class MainWindow extends javax.swing.JFrame {
-    
-    
-   
 
     public static JButton old;
+
     public MainWindow() {
         initComponents();
         editBox1.setCanvas(canvas1);
         mainButtonGroup1.setCc(canvas1);
         setLocationRelativeTo(null);
         stroker.setValue(1);
-            getContentPane().setBackground( new Color(83,83,83) );
-        menu.setUI ( new BasicMenuBarUI (){
-    public void paint ( Graphics g, JComponent c ){
-       g.setColor ( new Color(40,40,40) );
-       g.fillRect ( 0, 0, c.getWidth (), c.getHeight () );
-    }
-} );
-        
+        getContentPane().setBackground(new Color(83, 83, 83));
+        menu.setUI(new BasicMenuBarUI() {
+            public void paint(Graphics g, JComponent c) {
+                g.setColor(new Color(40, 40, 40));
+                g.fillRect(0, 0, c.getWidth(), c.getHeight());
+            }
+        });
+
         canvas1.setFocusable(true);
-               canvas1.requestFocusInWindow();
-        
-        
+        canvas1.requestFocusInWindow();
+
     }
- public static void setPosition(String s)
- {
-     position.setText(s);
- }
+
+    public static void setPosition(String s) {
+        position.setText(s);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,6 +58,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         canvas1 = new ToolsPanels.Canvas();
+        Resize = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         position = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -93,15 +93,28 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        Resize.setText("jButton1");
+        Resize.setToolTipText("");
+        Resize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResizeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout canvas1Layout = new javax.swing.GroupLayout(canvas1);
         canvas1.setLayout(canvas1Layout);
         canvas1Layout.setHorizontalGroup(
             canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1152, Short.MAX_VALUE)
+            .addGroup(canvas1Layout.createSequentialGroup()
+                .addGap(209, 209, 209)
+                .addComponent(Resize)
+                .addContainerGap(870, Short.MAX_VALUE))
         );
         canvas1Layout.setVerticalGroup(
             canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 405, Short.MAX_VALUE)
+            .addGroup(canvas1Layout.createSequentialGroup()
+                .addComponent(Resize)
+                .addGap(0, 382, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(40, 40, 40));
@@ -132,7 +145,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         stroker.setMaximum(20);
         stroker.setMinimum(1);
-        stroker.setValue(20);
         stroker.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 strokerStateChanged(evt);
@@ -218,29 +230,35 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void canvas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseClicked
-        
+
     }//GEN-LAST:event_canvas1MouseClicked
 
     private void canvas1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseReleased
-old.doClick();
-editBox1.undo.setEnabled(true);
-canvas1.setFocusable(true);
-               canvas1.requestFocusInWindow();
+        old.doClick();
+        editBox1.undo.setEnabled(true);
+        canvas1.setFocusable(true);
+        canvas1.requestFocusInWindow();
     }//GEN-LAST:event_canvas1MouseReleased
 
     private void canvas1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_canvas1KeyPressed
-        
+
     }//GEN-LAST:event_canvas1KeyPressed
 
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
         System.out.println(evt.getKeyCode());
-        if(evt.getKeyCode()==46)
+        if (evt.getKeyCode() == 46) {
             System.out.println("hi");
+        }
     }//GEN-LAST:event_formKeyReleased
 
     private void strokerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_strokerStateChanged
         Canvas.setStroke(stroker.getValue());
     }//GEN-LAST:event_strokerStateChanged
+
+    private void ResizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResizeActionPerformed
+        Canvas.setShape(new Resizer());
+        old = Resize;
+    }//GEN-LAST:event_ResizeActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -269,12 +287,13 @@ canvas1.setFocusable(true);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               new MainWindow().setVisible(true);
+                new MainWindow().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Resize;
     private ToolsPanels.Canvas canvas1;
     private ToolsPanels.ColorBoxes colorBoxes1;
     private ToolsPanels.ColorStrip colorStrip1;

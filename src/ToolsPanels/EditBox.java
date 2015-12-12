@@ -64,6 +64,7 @@ public class EditBox extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(210, 47));
 
         fill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Paint-Bucket-32.png"))); // NOI18N
+        fill.setToolTipText("Fill");
         fill.setBorder(null);
         fill.setContentAreaFilled(false);
         fill.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,6 +132,7 @@ public class EditBox extends javax.swing.JPanel {
         });
 
         picker.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Color Picker-32.png"))); // NOI18N
+        picker.setToolTipText("Color Picker");
         picker.setContentAreaFilled(false);
         picker.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -153,6 +155,7 @@ public class EditBox extends javax.swing.JPanel {
         });
 
         move.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/graphic-design (1).png"))); // NOI18N
+        move.setToolTipText("Move");
         move.setContentAreaFilled(false);
         move.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

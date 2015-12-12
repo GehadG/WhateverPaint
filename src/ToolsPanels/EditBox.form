@@ -78,6 +78,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resources/Paint-Bucket-32.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Fill"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -132,6 +133,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resources/Color Picker-32.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Color Picker"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -147,6 +149,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resources/graphic-design (1).png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Move"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>
