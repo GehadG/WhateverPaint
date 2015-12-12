@@ -23,6 +23,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class MainButtonGroup extends javax.swing.JPanel {
 
     Canvas cc;
+
     public MainButtonGroup() {
         initComponents();
     }
@@ -165,74 +166,71 @@ public class MainButtonGroup extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectActionPerformed
-         Canvas.setShape(new Selector());
-      
-       
-        MainWindow.old=select;
+        Canvas.setShape(new Selector());
+
+        MainWindow.old = select;
     }//GEN-LAST:event_selectActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
-ArrayList<Shapes> prevShapes2 = new ArrayList();
-Canvas.intersects.clear();
+        ArrayList<Shapes> prevShapes2 = new ArrayList();
+        Canvas.intersects.clear();
         Canvas.setPrevShapes(prevShapes2);
         cc.repaint();
         EditBox.undo.setEnabled(false);
-        EditBox.redo.setEnabled(false);        
+        EditBox.redo.setEnabled(false);
     }//GEN-LAST:event_clearActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     JFileChooser chooser = new JFileChooser();
-      chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml", ".XML",".xml"));
-      chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-    int result = chooser.showOpenDialog(null);
-    switch (result) {
-    case JFileChooser.APPROVE_OPTION:
-      String path =  chooser.getSelectedFile().getAbsolutePath();
-        readingXml read = new readingXml(path);
-        Canvas.prevShapes=read.getShapes2();
-        cc.repaint();
-      break;
-    case JFileChooser.CANCEL_OPTION:
-   
-      break;
-    }
+        JFileChooser chooser = new JFileChooser();
+        chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml", ".XML", ".xml"));
+        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int result = chooser.showOpenDialog(null);
+        switch (result) {
+            case JFileChooser.APPROVE_OPTION:
+                String path = chooser.getSelectedFile().getAbsolutePath();
+                readingXml read = new readingXml(path);
+                Canvas.prevShapes = read.getShapes2();
+                cc.repaint();
+                break;
+            case JFileChooser.CANCEL_OPTION:
+
+                break;
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         JFileChooser fileChooser = new JFileChooser();
-fileChooser.setDialogTitle("Specify a file to save");   
- fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml", ".XML",".xml"));
+        fileChooser.setDialogTitle("Specify a file to save");
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml", ".XML", ".xml"));
 
-int userSelection = fileChooser.showSaveDialog(null);
- 
-if (userSelection == JFileChooser.APPROVE_OPTION) {
-    String path = fileChooser.getSelectedFile().getAbsolutePath();
-    if(path.endsWith(".xml")||path.endsWith(".XML")){
-        
-    }
-    else{
-        path=path+".xml";
-    }
-        
-   
-    savingXML save = new savingXML(Canvas.prevShapes,path );
-}
+        int userSelection = fileChooser.showSaveDialog(null);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            String path = fileChooser.getSelectedFile().getAbsolutePath();
+            if (path.endsWith(".xml") || path.endsWith(".XML")) {
+
+            } else {
+                path = path + ".xml";
+            }
+
+            savingXML save = new savingXML(Canvas.prevShapes, path);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void clearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseExited
-          JButton Button = (JButton) evt.getSource();
+        JButton Button = (JButton) evt.getSource();
         CustomButtonStyle s = new CustomButtonStyle(Button);
         s.exit(Button);
     }//GEN-LAST:event_clearMouseExited
 
     private void clearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseEntered
-           JButton Button = (JButton) evt.getSource();
+        JButton Button = (JButton) evt.getSource();
         CustomButtonStyle s = new CustomButtonStyle(Button);
         s.release(Button);
     }//GEN-LAST:event_clearMouseEntered
 
     private void clearMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMousePressed
-         JButton Button = (JButton) evt.getSource();
+        JButton Button = (JButton) evt.getSource();
         CustomButtonStyle s = new CustomButtonStyle(Button);
         s.press(Button);
     }//GEN-LAST:event_clearMousePressed

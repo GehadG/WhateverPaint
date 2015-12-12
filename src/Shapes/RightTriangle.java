@@ -14,7 +14,6 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.RenderingHints;
 
-
 /**
  *
  * @author Gehad
@@ -25,15 +24,15 @@ public class RightTriangle extends Shapes {
     private Polygon triangle;
 
     public RightTriangle() {
-        
+
     }
 
     @Override
     public void drawShape(Graphics g) {
-        
+
         Graphics2D g2 = (Graphics2D) g;
-         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-        RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(getColor());
         x1 = getxPos();
         x2 = x1;
@@ -47,9 +46,10 @@ public class RightTriangle extends Shapes {
         setThisShape(triangle.getBounds2D());
         g2.setPaint(getFillColor());
         g2.fill(triangle);
-        if(isSelected())
+        if (isSelected()) {
             drawBound(g2);
-        
+        }
+
     }
 
     @Override
@@ -57,30 +57,23 @@ public class RightTriangle extends Shapes {
         drawBoundPoint(x1, y1, g);
         drawBoundPoint(x2, y2, g);
         drawBoundPoint(x3, y3, g);
-        
+
     }
 
     @Override
-    public void move(Point p,Point o) {
-        int baseX=(int) o.getX();
-        int baseY=(int) o.getY();
+    public void move(Point p, Point o) {
+        int baseX = (int) o.getX();
+        int baseY = (int) o.getY();
         int dx = (int) (p.getX() - baseX);
         int dy = (int) (p.getY() - baseY);
-        setxPos(getxPos()+dx);
-        setyPos(getyPos()+dy);
-                   
-        
+        setxPos(getxPos() + dx);
+        setyPos(getyPos() + dy);
+
     }
 
     @Override
     public void resize(Point p, Resizer r) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
-
-    
-
-  
 
 }

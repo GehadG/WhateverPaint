@@ -31,16 +31,15 @@ import javax.swing.JLabel;
  */
 public class ToolBoxs extends javax.swing.JPanel {
 
-
     public ToolBoxs() {
         initComponents();
-        Hashtable<Integer,JLabel> labels = new Hashtable();
-        labels.put(0,new JLabel("0"));
-        labels.put(10,new JLabel("10"));
-        labels.put(20,new JLabel("20"));
-        
-        MainWindow.old=freeHand;
-     
+        Hashtable<Integer, JLabel> labels = new Hashtable();
+        labels.put(0, new JLabel("0"));
+        labels.put(10, new JLabel("10"));
+        labels.put(20, new JLabel("20"));
+
+        MainWindow.old = freeHand;
+
     }
 
     /**
@@ -317,17 +316,17 @@ public class ToolBoxs extends javax.swing.JPanel {
 
     private void rectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rectActionPerformed
         Canvas.setShape(new Rectangle());
-        MainWindow.old=rect;
+        MainWindow.old = rect;
     }//GEN-LAST:event_rectActionPerformed
 
     private void ellipseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ellipseActionPerformed
         Canvas.setShape(new Ellipse());
-        MainWindow.old=ellipse;
+        MainWindow.old = ellipse;
     }//GEN-LAST:event_ellipseActionPerformed
 
     private void circleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circleActionPerformed
         Canvas.setShape(new Circle());
-        MainWindow.old=circle;
+        MainWindow.old = circle;
     }//GEN-LAST:event_circleActionPerformed
 
     private void freeHandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freeHandActionPerformed
@@ -347,13 +346,13 @@ public class ToolBoxs extends javax.swing.JPanel {
 
     private void rightTrigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightTrigActionPerformed
         Canvas.setShape(new RightTriangle());
-        MainWindow.old=rightTrig;
+        MainWindow.old = rightTrig;
     }//GEN-LAST:event_rightTrigActionPerformed
 
     private void sqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sqButtonActionPerformed
         Canvas.setShape(new Square());
-        
-        MainWindow.old=sqButton;
+
+        MainWindow.old = sqButton;
     }//GEN-LAST:event_sqButtonActionPerformed
 
     private void rightTrigMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rightTrigMouseExited
@@ -363,7 +362,7 @@ public class ToolBoxs extends javax.swing.JPanel {
     }//GEN-LAST:event_rightTrigMouseExited
 
     private void rightTrigMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rightTrigMousePressed
-         JButton Button = (JButton) evt.getSource();
+        JButton Button = (JButton) evt.getSource();
         CustomButtonStyle s = new CustomButtonStyle(Button);
         s.press(Button);
     }//GEN-LAST:event_rightTrigMousePressed
@@ -375,7 +374,7 @@ public class ToolBoxs extends javax.swing.JPanel {
     }//GEN-LAST:event_rightTrigMouseReleased
 
     private void rightTrigMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rightTrigMouseEntered
-           JButton Button = (JButton) evt.getSource();
+        JButton Button = (JButton) evt.getSource();
         CustomButtonStyle s = new CustomButtonStyle(Button);
         s.release(Button);
     }//GEN-LAST:event_rightTrigMouseEntered

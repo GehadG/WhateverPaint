@@ -35,232 +35,197 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.Area;
-        
 
 /**
  *
  * @author Gehad
  */
-public class Canvas extends JPanel implements MouseListener,MouseMotionListener,KeyListener{
-    
+public class Canvas extends JPanel implements MouseListener, MouseMotionListener, KeyListener {
+
     private static Shapes s = new FreeHand();
-    public static boolean whichColor=false;
+    public static boolean whichColor = false;
 
     public static void setShape(Shapes s) {
         Canvas.s = s;
     }
     public static ArrayList<Shapes> prevShapes = new ArrayList();
-    public static ArrayList <Intersection> intersects = new ArrayList();
-    private boolean flag=false;
+    public static ArrayList<Intersection> intersects = new ArrayList();
+    private boolean flag = false;
     private Point point;
     private static int stroke;
     private static Color color = Color.BLACK;
-    private static Color bgColor= new Color(255, 255, 255, 0);
-    private Color transparent= new Color(255, 255, 255, 0);
+    private static Color bgColor = new Color(255, 255, 255, 0);
+    private Color transparent = new Color(255, 255, 255, 0);
+
     public Canvas() {
-        
+
         setBackground(color.white);
         addMouseListener(this);
         addMouseMotionListener(this);
         addKeyListener(this);
-            
-        
-     
+
     }
 
     public static void setBgColor(Color bgColor) {
         Canvas.bgColor = bgColor;
     }
 
-    
-
-
-    
     @Override
-    public void paintComponent(Graphics g)
-    {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for(Shapes ss:prevShapes)
-        {
+        for (Shapes ss : prevShapes) {
             ss.drawShape(g);
         }
-        
-          s.drawShape(g);
-       Graphics2D g2 =(Graphics2D) g;
-        for(Intersection i :intersects)
-        {
+
+        s.drawShape(g);
+        Graphics2D g2 = (Graphics2D) g;
+        for (Intersection i : intersects) {
             g2.setPaint(i.getColor());
             g2.fill(i.getArea());
         }
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
         Selector.disposeSelection();
-        if(s instanceof Selector)
-        {
-            ((Selector)s).select(e.getPoint());
+        if (s instanceof Selector) {
+            ((Selector) s).select(e.getPoint());
         }
-      repaint();
-       
+        repaint();
+
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        flag=false;
-      s.setxPos(e.getX());
-      s.setyPos(e.getY());
-      s.setColor(color);
-      s.setPenSize(stroke);
-      ScreenShot temp = new ScreenShot();
+        flag = false;
+        s.setxPos(e.getX());
+        s.setyPos(e.getY());
+        s.setColor(color);
+        s.setPenSize(stroke);
+        ScreenShot temp = new ScreenShot();
         temp.setShapes(prevShapes);
         temp.setIntersections(intersects);
-        if(Manager.undoStack.contains(temp)==false)
-        {
-       Manager.undoStack.push(temp);
-            
+        if (Manager.undoStack.contains(temp) == false) {
+            Manager.undoStack.push(temp);
+
         }
         System.out.println(temp.getShapes().size());
-       if(s instanceof Filler)
-        {   boolean intersect =false; 
-        
-        ArrayList<Shapes> within = new ArrayList();
-        for (Shapes ss:prevShapes)
-        {
-            if(ss.containsPoint(e.getPoint()))
-                within.add(ss);
-        }
-           // System.out.println(within.size());
-        if(within.size()<2)
-            intersect = false;
-        else
-            intersect = true;
-        if(!intersect){
-            for(Shapes ss:prevShapes)
-            {    
-                if(ss.containsPoint(e.getPoint()))
-                {   
-                    ss.setFillColor(bgColor);
+        if (s instanceof Filler) {
+            boolean intersect = false;
+
+            ArrayList<Shapes> within = new ArrayList();
+            for (Shapes ss : prevShapes) {
+                if (ss.containsPoint(e.getPoint())) {
+                    within.add(ss);
                 }
-                
             }
-        }
-        else
-        {Area intersection= new Area(within.get(0).getThisShape());
-         Area check;
-         for(int i=1;i<within.size();i++)
-         {
-             check = new Area(within.get(i).getThisShape());
-             intersection.intersect(check);
-         }
-         Color intersectColor = ColorBoxes.bgColor.getBackground();
-          intersects.add(new Intersection(intersection,intersectColor));
-        }
+            // System.out.println(within.size());
+            if (within.size() < 2) {
+                intersect = false;
+            } else {
+                intersect = true;
+            }
+            if (!intersect) {
+                for (Shapes ss : prevShapes) {
+                    if (ss.containsPoint(e.getPoint())) {
+                        ss.setFillColor(bgColor);
+                    }
+
+                }
+            } else {
+                Area intersection = new Area(within.get(0).getThisShape());
+                Area check;
+                for (int i = 1; i < within.size(); i++) {
+                    check = new Area(within.get(i).getThisShape());
+                    intersection.intersect(check);
+                }
+                Color intersectColor = ColorBoxes.bgColor.getBackground();
+                intersects.add(new Intersection(intersection, intersectColor));
+            }
             repaint();
-        }
-       else if (s instanceof Mover)
-       {
-           point=e.getPoint();
-       }
-       else if(s instanceof Picker)
-       {
+        } else if (s instanceof Mover) {
+            point = e.getPoint();
+        } else if (s instanceof Picker) {
             try {
-                Robot robot =new Robot();
+                Robot robot = new Robot();
                 color = robot.getPixelColor(e.getXOnScreen(), e.getYOnScreen());
                 ColorBoxes.penColor.setBackground(color);
             } catch (AWTException ex) {
                 Logger.getLogger(Canvas.class.getName()).log(Level.SEVERE, null, ex);
             }
-       }
-      
-      
+        }
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
-        if(flag&&!(s instanceof Selector)&&!(s instanceof Mover)&&!(s instanceof Resizer)&&!(s instanceof Filler)&&!(s instanceof Picker))
-        {
-      prevShapes.add(s);
-        
-    }
-        else
-        {
-            
+
+        if (flag && !(s instanceof Selector) && !(s instanceof Mover) && !(s instanceof Resizer) && !(s instanceof Filler) && !(s instanceof Picker)) {
+            prevShapes.add(s);
+
+        } else {
+
             repaint();
         }
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        flag=true;
-        MainWindow.setPosition("Mouse Position :"+e.getX()+","+e.getY());
-        if(s instanceof FreeHand)
-        {s.setPoint(e.getPoint());
-         
-        
-        }
-        
-        else if(s instanceof Mover)
-        {
-        
-           for(Shapes s2: prevShapes)
-           {    if(s2.isSelected()){
-               s2.move(e.getPoint(),point);
-               
-           }
-           
-      
-           }
-           point.x=e.getX();
-        point.y=e.getY();
-           
-        }
-        else if(s instanceof Resizer)
-        {
-            for(Shapes s2:prevShapes)
-            {
-                if(s2.isSelected())
-                    s2.resize(e.getPoint(), (Resizer) s);
+        flag = true;
+        MainWindow.setPosition("Mouse Position :" + e.getX() + "," + e.getY());
+        if (s instanceof FreeHand) {
+            s.setPoint(e.getPoint());
+
+        } else if (s instanceof Mover) {
+
+            for (Shapes s2 : prevShapes) {
+                if (s2.isSelected()) {
+                    s2.move(e.getPoint(), point);
+
+                }
+
             }
-        }
-          else if (s instanceof Line) {
+            point.x = e.getX();
+            point.y = e.getY();
+
+        } else if (s instanceof Resizer) {
+            for (Shapes s2 : prevShapes) {
+                if (s2.isSelected()) {
+                    s2.resize(e.getPoint(), (Resizer) s);
+                }
+            }
+        } else if (s instanceof Line) {
             s.setWidths(e.getX());
-            s.setLengths(e.getY() );
-           
+            s.setLengths(e.getY());
+
+        } else if (s instanceof RightTriangle || s instanceof IsocelesTriangle) {
+            s.setWidths(e.getX() - s.getxPos());
+            s.setLengths(e.getY() - s.getyPos());
+        } else {
+            s.setWidths(e.getX());
+            s.setLengths(e.getY());
+
         }
-          else if(s instanceof RightTriangle|| s instanceof IsocelesTriangle){
-              s.setWidths(e.getX()-s.getxPos());
-            s.setLengths(e.getY()-s.getyPos() ); 
-          }
-          
-        else {
-            s.setWidths(e.getX() );
-            s.setLengths(e.getY() );
-   
-        }
-       
-           repaint();
+
+        repaint();
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        
-        MainWindow.setPosition("Mouse Position :"+e.getX()+","+e.getY());
-        
-    }
 
-    
+        MainWindow.setPosition("Mouse Position :" + e.getX() + "," + e.getY());
+
+    }
 
     public static void setStroke(int stroke) {
         Canvas.stroke = stroke;
@@ -280,33 +245,29 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener,
 
     @Override
     public void keyTyped(KeyEvent e) {
-      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
- // System.out.println("Pressed " + e.getKeyCode());
-        if(e.getKeyCode()==127)
-        {ArrayList<Shapes> temp= new ArrayList();
-            for(Shapes ss:prevShapes)
-            {
-                if(!ss.isSelected()){
-                    
+        // System.out.println("Pressed " + e.getKeyCode());
+        if (e.getKeyCode() == 127) {
+            ArrayList<Shapes> temp = new ArrayList();
+            for (Shapes ss : prevShapes) {
+                if (!ss.isSelected()) {
+
                     temp.add(ss);
                 }
-                
-                
+
             }
-            prevShapes=temp;
+            prevShapes = temp;
             repaint();
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
-    
 }

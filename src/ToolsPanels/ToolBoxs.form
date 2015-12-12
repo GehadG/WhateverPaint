@@ -100,7 +100,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Rectangle"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
-        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rightTrigMouseEntered"/>
@@ -120,7 +119,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Ellipse"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
-        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rightTrigMouseEntered"/>
@@ -140,7 +138,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Circle"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
-        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rightTrigMouseEntered"/>
@@ -160,7 +157,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Free Hand"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
-        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rightTrigMouseEntered"/>
@@ -180,7 +176,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Line"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
-        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rightTrigMouseEntered"/>
@@ -200,7 +195,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Triangle"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
-        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rightTrigMouseEntered"/>
@@ -220,7 +214,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Right Triangle"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
-        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rightTrigMouseEntered"/>
@@ -240,7 +233,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Square"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
-        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rightTrigMouseEntered"/>

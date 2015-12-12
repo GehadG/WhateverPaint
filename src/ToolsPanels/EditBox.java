@@ -23,23 +23,24 @@ import javax.swing.JButton;
  * @author Gehad
  */
 public class EditBox extends javax.swing.JPanel {
-   private Stack <Shapes> redoo;
+
+    private Stack<Shapes> redoo;
     private Shapes temp1;
     private Shapes temp2;
-    private int flag1=0;
-    private int flag2=0;
+    private int flag1 = 0;
+    private int flag2 = 0;
     private ArrayList<Shapes> prevShapes2 = new ArrayList();
     private Canvas cc;
+
     public EditBox() {
         initComponents();
-       
+
         this.redoo = new Stack();
-        
-        
+
     }
-    public void setCanvas(Canvas c)
-    {
-        cc=c;
+
+    public void setCanvas(Canvas c) {
+        cc = c;
     }
 
     /**
@@ -237,56 +238,57 @@ public class EditBox extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void fillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fillActionPerformed
-Canvas.setShape(new Filler());
-        MainWindow.old=fill;  
-         for(Shapes s: Canvas.prevShapes)
-        {
-            if(s.isSelected())
+        Canvas.setShape(new Filler());
+        MainWindow.old = fill;
+        for (Shapes s : Canvas.prevShapes) {
+            if (s.isSelected()) {
                 s.setFillColor(ColorBoxes.bgColor.getBackground());
+            }
         }
         cc.repaint();
     }//GEN-LAST:event_fillActionPerformed
 
     private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
-     if(Manager.undoStack.isEmpty()==false)
-     {
-         ScreenShot temp = Manager.undoStack.pop();
-         System.out.println(Manager.undoStack.size());
-         Manager.redoStack.push(temp);
-         redo.setEnabled(true);
-        
-         Canvas.prevShapes=(temp.getShapes());
-         
-        Canvas.intersects.clear();
-         Canvas.intersects = temp.getIntersections();
-         if(Manager.undoStack.isEmpty())
-             undo.setEnabled(false);
-     }
-     cc.repaint();
-     
+        if (Manager.undoStack.isEmpty() == false) {
+            ScreenShot temp = Manager.undoStack.pop();
+            System.out.println(Manager.undoStack.size());
+            Manager.redoStack.push(temp);
+            redo.setEnabled(true);
+
+            Canvas.prevShapes = (temp.getShapes());
+
+            Canvas.intersects.clear();
+            Canvas.intersects = temp.getIntersections();
+            if (Manager.undoStack.isEmpty()) {
+                undo.setEnabled(false);
+            }
+        }
+        cc.repaint();
+
     }//GEN-LAST:event_undoActionPerformed
 
     private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
-        if(Manager.redoStack.isEmpty()==false)
-     {undo.setEnabled(true);
-         ScreenShot temp = Manager.redoStack.pop();
-         Manager.undoStack.push(temp);
-         Canvas.prevShapes= temp.getShapes();
-         Canvas.intersects = temp.getIntersections();
-         if(Manager.redoStack.isEmpty())
-             redo.setEnabled(false);
-     }
-     cc.repaint();
+        if (Manager.redoStack.isEmpty() == false) {
+            undo.setEnabled(true);
+            ScreenShot temp = Manager.redoStack.pop();
+            Manager.undoStack.push(temp);
+            Canvas.prevShapes = temp.getShapes();
+            Canvas.intersects = temp.getIntersections();
+            if (Manager.redoStack.isEmpty()) {
+                redo.setEnabled(false);
+            }
+        }
+        cc.repaint();
     }//GEN-LAST:event_redoActionPerformed
 
     private void pickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickerActionPerformed
-       Canvas.setShape(new Picker());
-        MainWindow.old=picker; 
+        Canvas.setShape(new Picker());
+        MainWindow.old = picker;
     }//GEN-LAST:event_pickerActionPerformed
 
     private void moveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveActionPerformed
-     Canvas.setShape(new Mover());
-        MainWindow.old=move; 
+        Canvas.setShape(new Mover());
+        MainWindow.old = move;
     }//GEN-LAST:event_moveActionPerformed
 
     private void buttonReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonReleased
@@ -308,8 +310,8 @@ Canvas.setShape(new Filler());
     }//GEN-LAST:event_fillMouseExited
 
     private void eraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eraseActionPerformed
-      Canvas.setShape(new Eraser());
-        MainWindow.old=erase; 
+        Canvas.setShape(new Eraser());
+        MainWindow.old = erase;
     }//GEN-LAST:event_eraseActionPerformed
 
 

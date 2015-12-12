@@ -58,31 +58,24 @@ public class Circle extends Ellipse {
     @Override
     public void resize(Point p, Resizer r) {
         ArrayList<Rectangle2D> rs = getResizePoints();
-        
-            if(rs.get(0).contains(p))
-            {
-                
-                    setxPos((int) p.getX());
-                    setyPos((int) p.getY());}
-                
-                else if(rs.get(1).contains(p))
-                {
-                    setxPos((int) p.getX());
-                    
-                    setLengths(p.getY());
-                }
-                else if(rs.get(2).contains(p))
-                {
-                    setyPos((int) p.getY());
-                    
-                    setWidths(p.getX());
-                }
-                else 
-                {
-                    setWidths((int) p.getX());
-                    setLengths((int) p.getY());
-                    
-                }
-            
+
+        if (rs.get(0).contains(p)) {
+
+            setxPos((int) p.getX());
+            setyPos((int) p.getY());
+        } else if (rs.get(1).contains(p)) {
+            setxPos((int) p.getX());
+
+            setLengths(p.getY());
+        } else if (rs.get(2).contains(p)) {
+            setyPos((int) p.getY());
+
+            setWidths(p.getX());
+        } else {
+            setWidths((int) p.getX());
+            setLengths((int) p.getY());
+
         }
+
+    }
 }

@@ -93,7 +93,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        Resize.setText("jButton1");
+        Resize.setText("Resize zawedo ya gogo");
         Resize.setToolTipText("");
         Resize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,14 +107,14 @@ public class MainWindow extends javax.swing.JFrame {
             canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(canvas1Layout.createSequentialGroup()
                 .addGap(209, 209, 209)
-                .addComponent(Resize)
-                .addContainerGap(870, Short.MAX_VALUE))
+                .addComponent(Resize, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(774, Short.MAX_VALUE))
         );
         canvas1Layout.setVerticalGroup(
             canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(canvas1Layout.createSequentialGroup()
-                .addComponent(Resize)
-                .addGap(0, 382, Short.MAX_VALUE))
+                .addComponent(Resize, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 342, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(40, 40, 40));

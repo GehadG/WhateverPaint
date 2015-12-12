@@ -39,12 +39,14 @@ import javax.swing.JFileChooser;
  * @author Hana hefny
  */
 public class savingXML {
-private String path;
-    public savingXML(ArrayList<Shapes> list,String path) {
+
+    private String path;
+
+    public savingXML(ArrayList<Shapes> list, String path) {
         try {
-            this.path=path;
+            this.path = path;
             this.savetoXMLfile(list);
-            JFileChooser file= new JFileChooser();
+            JFileChooser file = new JFileChooser();
             file.setVisible(true);
         } catch (ParserConfigurationException parse) {
         } catch (FileNotFoundException filenotfound) {
@@ -60,12 +62,12 @@ private String path;
         DocumentBuilder db = dbf.newDocumentBuilder();
         //document
         Document xmldoc = db.newDocument();
-      //structure
+        //structure
         //Element e = null;
         Element rootEle = xmldoc.createElement("Shapes");
-       
+
         for (i = 0; i < list.size(); i++) {
-             Element mainelement = xmldoc.createElement("type");
+            Element mainelement = xmldoc.createElement("type");
             s = list.get(i);
             String type = "";
             if (s instanceof Rectangle) {
@@ -91,7 +93,7 @@ private String path;
             }
             if (s instanceof FreeHand) {
                 FreeHand f = (FreeHand) s;
-                type="FreeHand";
+                type = "FreeHand";
                 ArrayList<Point> pointss = f.getPoints();
                 int redcolour = s.getColor().getRed();
                 int greencolour = s.getColor().getGreen();
@@ -100,8 +102,8 @@ private String path;
                 String greenc = Integer.toString(greencolour);
                 String bluec = Integer.toString(bluecolour);
                 String pensize = Integer.toString(s.getPenSize());
-                 
-                    mainelement.setAttribute("T", type);
+
+                mainelement.setAttribute("T", type);
                 for (int k = 0; k < pointss.size(); k++) {
                     Point p;
                     p = pointss.get(k);
@@ -110,8 +112,7 @@ private String path;
                     int y = p.y;
                     String ystring = Integer.toString(y);
                     Element Point = xmldoc.createElement("Point");
-                
-                                      
+
                     Text xpointText = xmldoc.createTextNode(xstring);
                     Element xpoint = xmldoc.createElement("xpoint");
                     xpoint.appendChild(xpointText);
@@ -124,7 +125,7 @@ private String path;
                     Point.appendChild(ypoint);
                     mainelement.appendChild(Point);
                 }
-                    Text pensizetext = xmldoc.createTextNode(pensize);
+                Text pensizetext = xmldoc.createTextNode(pensize);
                 Element PenSize1 = xmldoc.createElement("Pensize");
                 PenSize1.appendChild(pensizetext);
                 mainelement.appendChild(PenSize1);
@@ -142,7 +143,7 @@ private String path;
                 blue.appendChild(bluetext);
                 colour.appendChild(blue);
                 mainelement.appendChild(colour);
-                               
+
             } else {
                 String xposition = Integer.toString(s.getxPos());
                 String yposition = Integer.toString(s.getyPos());
@@ -190,15 +191,15 @@ private String path;
                 blue.appendChild(bluetext);
                 colour.appendChild(blue);
                 mainelement.appendChild(colour);
-                 redcolour = s.getFillColor().getRed();
-                 greencolour = s.getFillColor().getGreen();
-                 bluecolour = s.getFillColor().getBlue();
-                int alphacolor= s.getFillColor().getAlpha();
-                 redc = Integer.toString(redcolour);
-                 greenc = Integer.toString(greencolour);
-                 bluec = Integer.toString(bluecolour);
-                
-                 String alphac = Integer.toString(alphacolor);
+                redcolour = s.getFillColor().getRed();
+                greencolour = s.getFillColor().getGreen();
+                bluecolour = s.getFillColor().getBlue();
+                int alphacolor = s.getFillColor().getAlpha();
+                redc = Integer.toString(redcolour);
+                greenc = Integer.toString(greencolour);
+                bluec = Integer.toString(bluecolour);
+
+                String alphac = Integer.toString(alphacolor);
                 Element colourfill = xmldoc.createElement("colourfill");
                 Text redfilltext = xmldoc.createTextNode(redc);
                 Element redfill = xmldoc.createElement("redfillcomponent");
@@ -217,22 +218,22 @@ private String path;
                 alpha.appendChild(alphafilltext);
                 colourfill.appendChild(alpha);
                 mainelement.appendChild(colourfill);
-                
+
             }
-                rootEle.appendChild(mainelement);
-            
+            rootEle.appendChild(mainelement);
+
         }
         xmldoc.appendChild(rootEle);
-       
+
         OutputFormat outformat = new OutputFormat(xmldoc);
         outformat.setIndenting(true);
-        
+
         File xmlfile = new File(path);
-  
+
         FileOutputStream outstream = new FileOutputStream(xmlfile);
-    
+
         XMLSerializer serializer = new XMLSerializer(outstream, outformat);
-    
+
         serializer.serialize(xmldoc);
     }
 

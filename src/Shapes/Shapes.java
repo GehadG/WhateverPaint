@@ -24,17 +24,18 @@ import javax.swing.JComponent;
  *
  * @author Gehad
  */
-public abstract class Shapes extends JComponent{
+public abstract class Shapes extends JComponent {
+
     private int xPos;
     private int yPos;
-    private Color color=Color.BLACK;
+    private Color color = Color.BLACK;
     private int penSize;
     private double lengths;
     private double widths;
-    private boolean selected=false;
-    private Color fillColor= new Color(0,0,0,0f);
+    private boolean selected = false;
+    private Color fillColor = new Color(0, 0, 0, 0f);
     private Shape thisShape;
-    private ArrayList<Rectangle2D> resizePoints= new ArrayList();
+    private ArrayList<Rectangle2D> resizePoints = new ArrayList();
 
     public boolean isSelected() {
         return selected;
@@ -55,7 +56,7 @@ public abstract class Shapes extends JComponent{
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
-    
+
     public int getxPos() {
         return xPos;
     }
@@ -111,42 +112,47 @@ public abstract class Shapes extends JComponent{
     public void setThisShape(Shape thisShape) {
         this.thisShape = thisShape;
     }
-    
+
     public abstract void drawShape(Graphics g);
-    public  boolean containsPoint(Point p){
-       boolean check =thisShape.getBounds2D().contains(p);
-        
+
+    public boolean containsPoint(Point p) {
+        boolean check = thisShape.getBounds2D().contains(p);
+
         return check;
     }
-    public void setPoint(Point p){
-        
+
+    public void setPoint(Point p) {
+
     }
-    
+
     protected void drawBoundPoint(int x, int y, Graphics g) {
-         Graphics2D g2= (Graphics2D) g;
-         Rectangle2D boundPoint=new Rectangle2D.Double();
-         boundPoint.setRect(x - 3, y - 3, 7,7);
-         g2.setStroke(new BasicStroke(2));
+        Graphics2D g2 = (Graphics2D) g;
+        Rectangle2D boundPoint = new Rectangle2D.Double();
+        boundPoint.setRect(x - 3, y - 3, 7, 7);
+        g2.setStroke(new BasicStroke(2));
         g2.setColor(Color.BLACK);
         g2.draw(boundPoint);
         g2.setStroke(new BasicStroke(0));
         g2.fill(boundPoint);
         resizePoints.add(boundPoint);
-       
+
     }
-     public void drawBound(Graphics g)
-     { Rectangle2D bound = thisShape.getBounds2D();
-         drawBoundPoint((int)bound.getMinX(),(int)bound.getMinY(), g);
-         drawBoundPoint((int)bound.getMinX(),(int)bound.getMaxY(), g);
-         drawBoundPoint((int)bound.getMaxX(),(int)bound.getMinY(), g);
-         drawBoundPoint((int)bound.getMaxX(),(int)bound.getMaxY(), g);
-         
-     }
-     public abstract void move(Point p,Point origin);
-     public abstract void resize(Point p,Resizer r);
+
+    public void drawBound(Graphics g) {
+        Rectangle2D bound = thisShape.getBounds2D();
+        drawBoundPoint((int) bound.getMinX(), (int) bound.getMinY(), g);
+        drawBoundPoint((int) bound.getMinX(), (int) bound.getMaxY(), g);
+        drawBoundPoint((int) bound.getMaxX(), (int) bound.getMinY(), g);
+        drawBoundPoint((int) bound.getMaxX(), (int) bound.getMaxY(), g);
+
+    }
+
+    public abstract void move(Point p, Point origin);
+
+    public abstract void resize(Point p, Resizer r);
+
     @Override
- public String toString()
- {
-     return getClass().toString();
- }
+    public String toString() {
+        return getClass().toString();
+    }
 }
