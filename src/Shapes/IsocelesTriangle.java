@@ -76,6 +76,38 @@ public class IsocelesTriangle extends Shapes {
 
     }
 
+    public int getX2() {
+        return x2;
+    }
+
+    public void setX2(int x2) {
+        this.x2 = x2;
+    }
+
+    public int getX3() {
+        return x3;
+    }
+
+    public void setX3(int x3) {
+        this.x3 = x3;
+    }
+
+    public int getY2() {
+        return y2;
+    }
+
+    public void setY2(int y2) {
+        this.y2 = y2;
+    }
+
+    public int getY3() {
+        return y3;
+    }
+
+    public void setY3(int y3) {
+        this.y3 = y3;
+    }
+
     @Override
     public void move(Point p, Point o) {
         int baseX = (int) o.getX();
@@ -89,7 +121,7 @@ public class IsocelesTriangle extends Shapes {
 
     @Override
     public void resize(Point p, Resizer r) {
-        setX1((int) p.getX());
-        setY1((int) p.getY());
+        setX2((int) p.getX());
+        setY2((int) p.getY());
     }
 }

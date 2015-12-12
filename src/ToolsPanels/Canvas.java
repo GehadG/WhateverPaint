@@ -63,7 +63,6 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 
     public Canvas() {
 
-        
         setBackground(color.white);
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -212,8 +211,14 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         } else if (s instanceof Resizer) {
             for (Shapes s2 : prevShapes) {
                 if (s2.isSelected()) {
+                    if (s2.getClass().getName().equalsIgnoreCase("Shapes.IsocelesTriangle") || s2.getClass().getName().equalsIgnoreCase("Shapes.RightTriangle")) {
+                        s2.setWidths(e.getX() - s2.getxPos());
+                        s2.setLengths(e.getY() - s2.getyPos());
+                    }
+
                     s2.resize(e.getPoint(), (Resizer) s);
                 }
+
             }
         } else if (s instanceof Line) {
             s.setWidths(e.getX());

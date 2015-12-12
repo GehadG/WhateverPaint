@@ -73,7 +73,24 @@ public class RightTriangle extends Shapes {
 
     @Override
     public void resize(Point p, Resizer r) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setX2((int) p.getX());
+        setY2((int) p.getY());
+    }
+
+    public int getX2() {
+        return x2;
+    }
+
+    public void setX2(int x2) {
+        this.x2 = x2;
+    }
+
+    public int getY2() {
+        return y2;
+    }
+
+    public void setY2(int y2) {
+        this.y2 = y2;
     }
 
 }
