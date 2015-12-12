@@ -57,38 +57,33 @@ public class Square extends Rectangle {
 
     @Override
     public void resize(Point p, Resizer r) {
-        /*ArrayList<Rectangle2D> rs = getResizePoints();
-         for(int i=0;i<rs.size();i++)
-         {
-         if(rs.get(i).contains(p))
-         {
-         if(i==0)
-         {
-         setxPos((int) p.getX());
-         setyPos((int) p.getY());
-         }
-         else if(i==1)
-         {
-         setxPos((int) p.getX());
+        ArrayList<Rectangle2D> rs = getResizePoints();
+        
+            if(rs.get(0).contains(p))
+            {
+                
+                    setxPos((int) p.getX());
+                    setyPos((int) p.getY());}
+                
+                else if(rs.get(1).contains(p))
+                {
+                    setxPos((int) p.getX());
                     
-         setWidths(p.getY());
-         }
-         else if(i==2)
-         {
-         setyPos((int) p.getY());
+                    setLengths(p.getY());
+                }
+                else if(rs.get(2).contains(p))
+                {
+                    setyPos((int) p.getY());
                     
-         setWidths(p.getX());
-         }
-         else 
-         {
-         setWidths((int) p.getX());
-         setLengths((int) p.getY());
+                    setWidths(p.getX());
+                }
+                else 
+                {
+                    setWidths((int) p.getX());
+                    setLengths((int) p.getY());
                     
-         }
-         }
-         }
-         */
-        setxPos((int) p.getX());
-        setyPos((int) p.getY());
+                }
+            
+        }
     }
-}
+

@@ -55,13 +55,13 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="fill" max="32767" attributes="0"/>
-                  <Component id="move" max="32767" attributes="0"/>
+                  <Component id="move" pref="47" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="erase" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="undo" min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="redo" max="32767" attributes="0"/>
+                  <Component id="redo" pref="49" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

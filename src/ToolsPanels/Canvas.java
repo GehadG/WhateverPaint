@@ -116,7 +116,7 @@ public class Canvas extends JPanel implements MouseListener,MouseMotionListener,
         temp.setShapes(prevShapes);
         temp.setIntersections(intersects);
         if(Manager.undoStack.contains(temp)==false)
-        {System.out.println("a7aa");
+        {
        Manager.undoStack.push(temp);
             
         }

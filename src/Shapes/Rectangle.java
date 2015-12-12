@@ -57,23 +57,21 @@ public class Rectangle extends Shapes{
 
     @Override
     public void resize(Point p, Resizer r) {
-        /*ArrayList<Rectangle2D> rs = getResizePoints();
-        for(int i=0;i<rs.size();i++)
-        {
-            if(rs.get(i).contains(p))
+        ArrayList<Rectangle2D> rs = getResizePoints();
+        
+            if(rs.get(0).contains(p))
             {
-                if(i==0)
-                {*/
+                
                     setxPos((int) p.getX());
-                    setyPos((int) p.getY());
-                /*}
-                else if(i==1)
+                    setyPos((int) p.getY());}
+                
+                else if(rs.get(1).contains(p))
                 {
                     setxPos((int) p.getX());
                     
                     setLengths(p.getY());
                 }
-                else if(i==2)
+                else if(rs.get(2).contains(p))
                 {
                     setyPos((int) p.getY());
                     
@@ -85,6 +83,6 @@ public class Rectangle extends Shapes{
                     setLengths((int) p.getY());
                     
                 }
-            }*/
+            
         }
 }
