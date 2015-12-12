@@ -60,7 +60,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         canvas1 = new ToolsPanels.Canvas();
-        Resize = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         position = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -95,28 +94,15 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        Resize.setText("Resize zawedo ya gogo");
-        Resize.setToolTipText("");
-        Resize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ResizeActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout canvas1Layout = new javax.swing.GroupLayout(canvas1);
         canvas1.setLayout(canvas1Layout);
         canvas1Layout.setHorizontalGroup(
             canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(canvas1Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addComponent(Resize, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(774, Short.MAX_VALUE))
+            .addGap(0, 1142, Short.MAX_VALUE)
         );
         canvas1Layout.setVerticalGroup(
             canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(canvas1Layout.createSequentialGroup()
-                .addComponent(Resize, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 365, Short.MAX_VALUE))
+            .addGap(0, 428, Short.MAX_VALUE)
         );
 
         jPanel1.setBackground(new java.awt.Color(40, 40, 40));
@@ -158,19 +144,19 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(mainButtonGroup1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mainButtonGroup1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(toolBoxs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(toolBoxs1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(10, 10, 10)
                         .addComponent(colorBoxes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(stroker, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35)
+                .addGap(64, 64, 64)
                 .addComponent(colorStrip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -247,20 +233,12 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_canvas1KeyPressed
 
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
-        System.out.println(evt.getKeyCode());
-        if (evt.getKeyCode() == 46) {
-            System.out.println("hi");
-        }
+      
     }//GEN-LAST:event_formKeyReleased
 
     private void strokerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_strokerStateChanged
         Canvas.setStroke(stroker.getValue());
     }//GEN-LAST:event_strokerStateChanged
-
-    private void ResizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResizeActionPerformed
-        Canvas.setShape(new Resizer());
-        old = Resize;
-    }//GEN-LAST:event_ResizeActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -295,7 +273,6 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Resize;
     private ToolsPanels.Canvas canvas1;
     private ToolsPanels.ColorBoxes colorBoxes1;
     private ToolsPanels.ColorStrip colorStrip1;

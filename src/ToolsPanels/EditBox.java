@@ -11,9 +11,11 @@ import Tools.Picker;
 
 import Shapes.Shapes;
 import Tools.Eraser;
+import Tools.Resizer;
 import UndoRedoManager.Manager;
 import UndoRedoManager.ScreenShot;
 import WhateverPaint.MainWindow;
+import static WhateverPaint.MainWindow.old;
 import java.util.ArrayList;
 import java.util.Stack;
 import javax.swing.JButton;
@@ -34,7 +36,8 @@ public class EditBox extends javax.swing.JPanel {
 
     public EditBox() {
         initComponents();
-
+undo.setEnabled(false);
+redo.setEnabled(false);
         this.redoo = new Stack();
 
     }
@@ -58,6 +61,7 @@ public class EditBox extends javax.swing.JPanel {
         picker = new javax.swing.JButton();
         move = new javax.swing.JButton();
         erase = new javax.swing.JButton();
+        resize = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(40, 40, 40));
         setMaximumSize(new java.awt.Dimension(210, 47));
@@ -203,40 +207,67 @@ public class EditBox extends javax.swing.JPanel {
             }
         });
 
+        resize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Scale-To-Fit-32.png"))); // NOI18N
+        resize.setToolTipText("Resize");
+        resize.setContentAreaFilled(false);
+        resize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonReleased(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                fillMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                fillMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                buttonReleased(evt);
+            }
+        });
+        resize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resizeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(erase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(move, javax.swing.GroupLayout.PREFERRED_SIZE, 56, Short.MAX_VALUE)
-                    .addComponent(erase, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(fill, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(undo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(redo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(fill, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(undo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(redo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(resize, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
+                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(picker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(erase, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(undo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(redo, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                    .addComponent(redo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(resize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -254,6 +285,7 @@ public class EditBox extends javax.swing.JPanel {
     private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
 
         if (!Canvas.undost.isEmpty()) {
+            redo.setEnabled(true);
             Canvas.prevShapes = new ArrayList();
             Canvas.redost.push(Canvas.undost.pop());
             if (Canvas.undost.isEmpty()) {
@@ -262,6 +294,8 @@ public class EditBox extends javax.swing.JPanel {
             Canvas.prevShapes.addAll(Canvas.undost.peek());
             cc.repaint();
             System.out.println(Canvas.undost.size());
+            if(Canvas.undost.isEmpty())
+                undo.setEnabled(false);
             /* ScreenShot temp = Manager.undoStack.pop();
              System.out.println(Manager.undoStack.size());
              Manager.redoStack.push(temp);
@@ -292,10 +326,14 @@ public class EditBox extends javax.swing.JPanel {
          }
          cc.repaint();*/
         if (!Canvas.redost.isEmpty()) {
+            undo.setEnabled(true);
             Canvas.prevShapes = new ArrayList();
             Canvas.undost.push(Canvas.redost.pop());
             Canvas.prevShapes.addAll(Canvas.undost.peek());
             cc.repaint();
+            if(Canvas.redost.isEmpty())
+                redo.setEnabled(false);
+            
         }
     }//GEN-LAST:event_redoActionPerformed
 
@@ -332,6 +370,11 @@ public class EditBox extends javax.swing.JPanel {
         MainWindow.old = erase;
     }//GEN-LAST:event_eraseActionPerformed
 
+    private void resizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resizeActionPerformed
+ Canvas.setShape(new Resizer());
+        MainWindow.old = resize;        // TODO add your handling code here:
+    }//GEN-LAST:event_resizeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton erase;
@@ -339,6 +382,7 @@ public class EditBox extends javax.swing.JPanel {
     private javax.swing.JButton move;
     private javax.swing.JButton picker;
     public static javax.swing.JButton redo;
+    public static javax.swing.JButton resize;
     public static javax.swing.JButton undo;
     // End of variables declaration//GEN-END:variables
 }

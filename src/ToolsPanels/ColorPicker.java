@@ -12,6 +12,7 @@ import java.awt.Point;
 import java.awt.Robot;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 
 /**
  *
@@ -60,7 +61,7 @@ public class ColorPicker extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(83, 83, 83));
+        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cw.png"))); // NOI18N
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -134,6 +135,22 @@ public class ColorPicker extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(40, 40, 40));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Close");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton1MouseReleased(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -278,6 +295,30 @@ public class ColorPicker extends javax.swing.JFrame {
         }
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+         JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.exit(Button);
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+          JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.release(Button);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+          JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.press(Button);
+    }//GEN-LAST:event_jButton1MousePressed
+
+    private void jButton1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseReleased
+          JButton Button = (JButton) evt.getSource();
+        CustomButtonStyle s = new CustomButtonStyle(Button);
+        s.release(Button);
+    }//GEN-LAST:event_jButton1MouseReleased
 
     /**
      * @param args the command line arguments
