@@ -249,36 +249,50 @@ public class EditBox extends javax.swing.JPanel {
     }//GEN-LAST:event_fillActionPerformed
 
     private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
-        if (Manager.undoStack.isEmpty() == false) {
-            ScreenShot temp = Manager.undoStack.pop();
-            System.out.println(Manager.undoStack.size());
-            Manager.redoStack.push(temp);
-            redo.setEnabled(true);
 
-            Canvas.prevShapes = (temp.getShapes());
+        if (!Canvas.undost.isEmpty()) {
+            Canvas.prevShapes = new ArrayList();
+            Canvas.redost.push(Canvas.undost.pop());
+            if (Canvas.undost.isEmpty())
+                cc.repaint();
+            Canvas.prevShapes.addAll(Canvas.undost.peek());
+            cc.repaint();
+            System.out.println(Canvas.undost.size());
+            /* ScreenShot temp = Manager.undoStack.pop();
+             System.out.println(Manager.undoStack.size());
+             Manager.redoStack.push(temp);
+             redo.setEnabled(true);
 
-            Canvas.intersects.clear();
-            Canvas.intersects = temp.getIntersections();
-            if (Manager.undoStack.isEmpty()) {
-                undo.setEnabled(false);
-            }
+             Canvas.prevShapes = (temp.getShapes());
+
+             Canvas.intersects.clear();
+             Canvas.intersects = temp.getIntersections();
+             if (Manager.undoStack.isEmpty()) {
+             undo.setEnabled(false);
+             }
+             }
+             cc.repaint();*/
         }
-        cc.repaint();
-
     }//GEN-LAST:event_undoActionPerformed
 
     private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
-        if (Manager.redoStack.isEmpty() == false) {
-            undo.setEnabled(true);
-            ScreenShot temp = Manager.redoStack.pop();
-            Manager.undoStack.push(temp);
-            Canvas.prevShapes = temp.getShapes();
-            Canvas.intersects = temp.getIntersections();
-            if (Manager.redoStack.isEmpty()) {
-                redo.setEnabled(false);
-            }
+        /*if (Manager.redoStack.isEmpty() == false) {
+         undo.setEnabled(true);
+         ScreenShot temp = Manager.redoStack.pop();
+         Manager.undoStack.push(temp);
+         Canvas.prevShapes = temp.getShapes();
+         Canvas.intersects = temp.getIntersections();
+         if (Manager.redoStack.isEmpty()) {
+         redo.setEnabled(false);
+         }
+         }
+         cc.repaint();*/
+        if (!Canvas.redost.isEmpty()) {
+            Canvas.prevShapes = new ArrayList();
+            Canvas.undost.push(Canvas.redost.pop());
+            Canvas.prevShapes.addAll(Canvas.undost.peek());
+            cc.repaint();
         }
-        cc.repaint();
     }//GEN-LAST:event_redoActionPerformed
 
     private void pickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pickerActionPerformed

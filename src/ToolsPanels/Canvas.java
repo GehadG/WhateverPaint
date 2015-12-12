@@ -35,6 +35,7 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.Area;
+import java.util.Stack;
 
 /**
  *
@@ -56,9 +57,13 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
     private static Color color = Color.BLACK;
     private static Color bgColor = new Color(255, 255, 255, 0);
     private Color transparent = new Color(255, 255, 255, 0);
-
+    public static ArrayList<Shapes> copyList=new ArrayList<Shapes>();
+    public static Stack<ArrayList<Shapes>> undost=new Stack();
+    public static Stack<ArrayList<Shapes>> redost=new Stack();
+    
     public Canvas() {
 
+       // undost.push(prevShapes);
         setBackground(color.white);
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -102,14 +107,14 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         s.setyPos(e.getY());
         s.setColor(color);
         s.setPenSize(stroke);
-        ScreenShot temp = new ScreenShot();
+        /*ScreenShot temp = new ScreenShot();
         temp.setShapes(prevShapes);
         temp.setIntersections(intersects);
         if (Manager.undoStack.contains(temp) == false) {
             Manager.undoStack.push(temp);
-
+            System.out.println(Manager.undoStack);
         }
-        System.out.println(temp.getShapes().size());
+        System.out.println(temp.getShapes().size());*/
         if (s instanceof Filler) {
             boolean intersect = false;
 
@@ -162,11 +167,18 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 
         if (flag && !(s instanceof Selector) && !(s instanceof Mover) && !(s instanceof Resizer) && !(s instanceof Filler) && !(s instanceof Picker)) {
             prevShapes.add(s);
+            
 
         } else {
 
             repaint();
         }
+        ArrayList<Shapes> copyList = new ArrayList<Shapes>();
+        for (int i = 0; i < prevShapes.size(); i++) {
+            copyList.add(prevShapes.get(i));
+        }
+        undost.push(copyList);
+        System.out.println(undost);
     }
 
     @Override

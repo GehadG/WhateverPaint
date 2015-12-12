@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Gehad
  */
 public class ScreenShot {
-    private ArrayList<Shapes> shapes;
+    private  ArrayList<Shapes> shapes;
     private ArrayList<Intersection> intersections;
 
     public ArrayList<Shapes> getShapes() {

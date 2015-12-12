@@ -11,6 +11,7 @@ import ToolsPanels.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import static java.awt.SystemColor.menu;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Stack;
 import javax.swing.JButton;
@@ -114,7 +115,7 @@ public class MainWindow extends javax.swing.JFrame {
             canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(canvas1Layout.createSequentialGroup()
                 .addComponent(Resize, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 342, Short.MAX_VALUE))
+                .addGap(0, 365, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(40, 40, 40));
@@ -220,7 +221,7 @@ public class MainWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(18, 18, 18)
                 .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -308,4 +309,5 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSlider stroker;
     private ToolsPanels.ToolBoxs toolBoxs1;
     // End of variables declaration//GEN-END:variables
+
 }
