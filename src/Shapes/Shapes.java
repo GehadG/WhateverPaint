@@ -20,10 +20,9 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 
-/**
- *
- * @author Gehad
- */
+
+
+
 public abstract class Shapes extends JComponent implements Cloneable {
 
     private int xPos;

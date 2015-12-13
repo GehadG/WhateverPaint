@@ -7,10 +7,8 @@ package ToolsPanels;
 
 import javax.swing.JButton;
 
-/**
- *
- * @author Gehad
- */
+
+
 public class ColorBoxes extends javax.swing.JPanel {
 
     ColorPicker cp=  new ColorPicker();

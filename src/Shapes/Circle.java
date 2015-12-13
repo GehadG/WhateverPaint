@@ -14,10 +14,10 @@ import java.awt.RenderingHints;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
-/**
- *
- * @author Gehad
- */
+
+
+
+
 public class Circle extends Ellipse {
 
     public Circle() {

@@ -14,10 +14,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 
-/**
- *
- * @author Gehad
- */
+
+
+
 public class ColorPicker extends javax.swing.JFrame {
 
     private Color ignorer;

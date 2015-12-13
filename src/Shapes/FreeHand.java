@@ -14,10 +14,9 @@ import java.awt.RenderingHints;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
-/**
- *
- * @author Gehad
- */
+
+
+
 public class FreeHand extends Shapes {
 
     protected ArrayList<Point> points = new ArrayList();

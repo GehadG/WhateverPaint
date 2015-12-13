@@ -13,10 +13,9 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.RenderingHints;
 
-/**
- *
- * @author Gehad
- */
+
+
+
 public class IsocelesTriangle extends Shapes {
 
     private int x1, x2, x3, y1, y2, y3;

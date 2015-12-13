@@ -16,6 +16,7 @@ import java.awt.RenderingHints;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
+
 public class Eraser extends FreeHand {
 
     public Eraser() {

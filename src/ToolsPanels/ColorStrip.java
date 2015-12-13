@@ -13,10 +13,9 @@ import java.awt.Robot;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Gehad
- */
+
+
+
 public class ColorStrip extends javax.swing.JPanel {
 
     private Color ignorer;

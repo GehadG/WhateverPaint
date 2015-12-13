@@ -25,10 +25,10 @@ import java.util.Hashtable;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-/**
- *
- * @author Gehad
- */
+
+
+
+
 public class ToolBoxs extends javax.swing.JPanel {
 
     public ToolBoxs() {

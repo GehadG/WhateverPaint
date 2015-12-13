@@ -37,11 +37,10 @@ import java.awt.event.KeyListener;
 import java.awt.geom.Area;
 import java.util.Stack;
 
-/**
- *
- * @author Gehad
- */
-public class Canvas extends JPanel implements MouseListener, MouseMotionListener, KeyListener,Cloneable {
+
+
+
+public class Canvas extends JPanel implements MouseListener, MouseMotionListener, KeyListener, Cloneable {
 
     private static Shapes s = new FreeHand();
     public static boolean whichColor = false;
@@ -80,7 +79,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         for (Shapes ss : prevShapes) {
             ss.drawShape(g);
         }
-
+        
         s.drawShape(g);
         Graphics2D g2 = (Graphics2D) g;
         for (Intersection i : intersects) {
@@ -106,14 +105,6 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         s.setyPos(e.getY());
         s.setColor(color);
         s.setPenSize(stroke);
-        /*ScreenShot temp = new ScreenShot();
-         temp.setShapes(prevShapes);
-         temp.setIntersections(intersects);
-         if (Manager.undoStack.contains(temp) == false) {
-         Manager.undoStack.push(temp);
-         System.out.println(Manager.undoStack);
-         }
-         System.out.println(temp.getShapes().size());*/
         if (s instanceof Filler) {
             boolean intersect = false;
 
@@ -123,7 +114,6 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
                     within.add(ss);
                 }
             }
-            // System.out.println(within.size());
             if (within.size() < 2) {
                 intersect = false;
             } else {
@@ -163,26 +153,25 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 
     @Override
     public void mouseReleased(MouseEvent e) {
-try {
-        if (flag && !(s instanceof Selector) && !(s instanceof Mover) && !(s instanceof Resizer) && !(s instanceof Filler) && !(s instanceof Picker)) {
-            prevShapes.add(s);
+        try {
+            if (flag && !(s instanceof Selector) && !(s instanceof Mover) && !(s instanceof Resizer) && !(s instanceof Filler) && !(s instanceof Picker)) {
+                prevShapes.add(s);
 
-        } else {
+            } else {
 
-            repaint();
-        }
-        ArrayList<Shapes> copyList = new ArrayList<Shapes>();
-        for (int i = 0; i < prevShapes.size(); i++) {
-            
-                copyList.add((Shapes) prevShapes.get(i).clone());
-        }
-        undost.push(copyList);
-        System.out.println(undost);
-} catch (CloneNotSupportedException ex) {
-                Logger.getLogger(Canvas.class.getName()).log(Level.SEVERE, null, ex);
+                repaint();
             }
-        
-        
+            ArrayList<Shapes> copyList = new ArrayList<Shapes>();
+            for (int i = 0; i < prevShapes.size(); i++) {
+
+                copyList.add((Shapes) prevShapes.get(i).clone());
+            }
+            undost.push(copyList);
+            System.out.println(undost);
+        } catch (CloneNotSupportedException ex) {
+            Logger.getLogger(Canvas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     @Override
@@ -272,7 +261,7 @@ try {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // System.out.println("Pressed " + e.getKeyCode());
+        
         if (e.getKeyCode() == 127) {
             ArrayList<Shapes> temp = new ArrayList();
             for (Shapes ss : prevShapes) {

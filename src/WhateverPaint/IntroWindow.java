@@ -8,10 +8,8 @@ package WhateverPaint;
 import javax.swing.JLabel;
 import javax.swing.JWindow;
 
-/**
- *
- * @author Gehad
- */
+
+
 public class IntroWindow  extends JWindow{
 
     public IntroWindow() {

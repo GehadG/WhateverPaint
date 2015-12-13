@@ -20,13 +20,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 import javax.swing.JButton;
 
-/**
- *
- * @author Gehad
- */
 public class EditBox extends javax.swing.JPanel {
 
-    private Stack<Shapes> redoo;
     private Shapes temp1;
     private Shapes temp2;
     private int flag1 = 0;
@@ -36,9 +31,8 @@ public class EditBox extends javax.swing.JPanel {
 
     public EditBox() {
         initComponents();
-undo.setEnabled(false);
-redo.setEnabled(false);
-        this.redoo = new Stack();
+        undo.setEnabled(false);
+        redo.setEnabled(false);
 
     }
 
@@ -235,38 +229,40 @@ redo.setEnabled(false);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(erase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(fill, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(move)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(undo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(redo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(resize, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(erase)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fill, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                    .addComponent(picker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(picker, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                    .addComponent(erase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(erase, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(undo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(redo, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(resize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(redo, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                    .addComponent(resize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                    .addComponent(undo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -291,50 +287,30 @@ redo.setEnabled(false);
             if (Canvas.undost.isEmpty()) {
                 cc.repaint();
             }
-            if(!Canvas.undost.isEmpty()){
-            Canvas.prevShapes.addAll(Canvas.undost.peek());
-            cc.repaint();
-            System.out.println(Canvas.undost.size());}
-            if(Canvas.undost.isEmpty())
+            if (!Canvas.undost.isEmpty()) {
+                Canvas.prevShapes.addAll(Canvas.undost.peek());
+                cc.repaint();
+                System.out.println(Canvas.undost.size());
+            }
+            if (Canvas.undost.isEmpty()) {
                 undo.setEnabled(false);
-            /* ScreenShot temp = Manager.undoStack.pop();
-             System.out.println(Manager.undoStack.size());
-             Manager.redoStack.push(temp);
-             redo.setEnabled(true);
-
-             Canvas.prevShapes = (temp.getShapes());
-
-             Canvas.intersects.clear();
-             Canvas.intersects = temp.getIntersections();
-             if (Manager.undoStack.isEmpty()) {
-             undo.setEnabled(false);
-             }
-             }
-             cc.repaint();*/
+            }
+            
         }
     }//GEN-LAST:event_undoActionPerformed
 
     private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
-        /*if (Manager.redoStack.isEmpty() == false) {
-         undo.setEnabled(true);
-         ScreenShot temp = Manager.redoStack.pop();
-         Manager.undoStack.push(temp);
-         Canvas.prevShapes = temp.getShapes();
-         Canvas.intersects = temp.getIntersections();
-         if (Manager.redoStack.isEmpty()) {
-         redo.setEnabled(false);
-         }
-         }
-         cc.repaint();*/
+        
         if (!Canvas.redost.isEmpty()) {
             undo.setEnabled(true);
             Canvas.prevShapes = new ArrayList();
             Canvas.undost.push(Canvas.redost.pop());
             Canvas.prevShapes.addAll(Canvas.undost.peek());
             cc.repaint();
-            if(Canvas.redost.isEmpty())
+            if (Canvas.redost.isEmpty()) {
                 redo.setEnabled(false);
-            
+            }
+
         }
     }//GEN-LAST:event_redoActionPerformed
 
@@ -372,7 +348,7 @@ redo.setEnabled(false);
     }//GEN-LAST:event_eraseActionPerformed
 
     private void resizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resizeActionPerformed
- Canvas.setShape(new Resizer());
+        Canvas.setShape(new Resizer());
         MainWindow.old = resize;        // TODO add your handling code here:
     }//GEN-LAST:event_resizeActionPerformed
 

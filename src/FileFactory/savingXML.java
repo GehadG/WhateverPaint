@@ -34,10 +34,9 @@ import java.awt.Point;
 import java.io.FileNotFoundException;
 import javax.swing.JFileChooser;
 
-/**
- *
- * @author Hana hefny
- */
+
+
+
 public class savingXML {
 
     private String path;

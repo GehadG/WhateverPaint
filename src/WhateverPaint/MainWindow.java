@@ -9,6 +9,7 @@ import Shapes.Shapes;
 import Tools.Resizer;
 import ToolsPanels.Canvas;
 import ToolsPanels.CustomButtonStyle;
+import ToolsPanels.EditBox;
 import java.awt.Color;
 import java.awt.Graphics;
 import static java.awt.SystemColor.menu;
@@ -20,10 +21,8 @@ import javax.swing.JComponent;
 import javax.swing.JMenu;
 import javax.swing.plaf.basic.BasicMenuBarUI;
 
-/**
- *
- * @author Gehad
- */
+
+
 public class MainWindow extends javax.swing.JFrame {
     
     public static JButton old;
@@ -76,6 +75,9 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        Edit = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
@@ -275,6 +277,29 @@ public class MainWindow extends javax.swing.JFrame {
 
         menu.add(jMenu1);
 
+        Edit.setForeground(new java.awt.Color(255, 255, 255));
+        Edit.setText("Edit");
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setText("Undo");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        Edit.add(jMenuItem4);
+
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setText("Redo");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        Edit.add(jMenuItem5);
+
+        menu.add(Edit);
+
         setJMenuBar(menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -351,6 +376,14 @@ public class MainWindow extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         mainButtonGroup1.save.doClick();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        EditBox.undo.doClick();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        EditBox.redo.doClick();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -385,6 +418,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Edit;
     private ToolsPanels.Canvas canvas1;
     private ToolsPanels.ColorBoxes colorBoxes1;
     private ToolsPanels.ColorStrip colorStrip1;
@@ -393,6 +427,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private ToolsPanels.MainButtonGroup mainButtonGroup1;

@@ -9,12 +9,11 @@ import Shapes.Shapes;
 import Tools.Intersection;
 import java.util.ArrayList;
 
-/**
- *
- * @author Gehad
- */
+
+
 public class ScreenShot {
-    private  ArrayList<Shapes> shapes;
+
+    private ArrayList<Shapes> shapes;
     private ArrayList<Intersection> intersections;
 
     public ArrayList<Shapes> getShapes() {
@@ -32,5 +31,5 @@ public class ScreenShot {
     public void setIntersections(ArrayList<Intersection> intersections) {
         this.intersections = intersections;
     }
-    
+
 }

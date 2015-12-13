@@ -7,10 +7,8 @@ package UndoRedoManager;
 
 import java.util.Stack;
 
-/**
- *
- * @author Gehad
- */
+
+
 public class Manager {
     
     public static Stack<ScreenShot> undoStack = new Stack();

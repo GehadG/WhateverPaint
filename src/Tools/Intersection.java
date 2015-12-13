@@ -8,10 +8,9 @@ package Tools;
 import java.awt.Color;
 import java.awt.geom.Area;
 
-/**
- *
- * @author Gehad
- */
+
+
+
 public class Intersection {
     private Area area;
     private Color color;

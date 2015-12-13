@@ -9,10 +9,9 @@ import java.awt.RenderingHints;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
-/*
- *
- * @author Gehad
- */
+
+
+
 public class Rectangle extends Shapes {
 
     protected Rectangle2D rect = new Rectangle2D.Double();

@@ -9,10 +9,10 @@ import Shapes.Shapes;
 import java.awt.Graphics;
 import java.awt.Point;
 
-/**
- *
- * @author Gehad
- */
+
+
+
+
 public class Resizer extends Shapes{
 
     @Override

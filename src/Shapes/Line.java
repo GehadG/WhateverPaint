@@ -13,10 +13,9 @@ import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.geom.Line2D;
 
-/**
- *
- * @author Gehad
- */
+
+
+
 public class Line extends Shapes {
 
     private Line2D line = new Line2D.Double();

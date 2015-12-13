@@ -15,10 +15,10 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
-/**
- *
- * @author Gehad
- */
+
+
+
+
 public class Ellipse extends Shapes {
 
     protected Ellipse2D ellipse = new Ellipse2D.Double();

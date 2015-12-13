@@ -21,10 +21,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import Shapes.*;
 
-/**
- *
- * @author Hana hefny
- */
+
+
+
 public class readingXml {
 
     ArrayList<Shapes> shapes2 = new ArrayList<Shapes>();
