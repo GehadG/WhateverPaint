@@ -156,6 +156,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         try {
             if (flag && !(s instanceof Selector) && !(s instanceof Mover) && !(s instanceof Resizer) && !(s instanceof Filler) && !(s instanceof Picker)) {
                 prevShapes.add(s);
+                redost.clear();
 
             } else {
 
