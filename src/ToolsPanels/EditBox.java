@@ -28,7 +28,7 @@ public class EditBox extends javax.swing.JPanel {
     private int flag2 = 0;
     private ArrayList<Shapes> prevShapes2 = new ArrayList();
     private Canvas cc;
-
+    
     public EditBox() {
         initComponents();
         undo.setEnabled(false);

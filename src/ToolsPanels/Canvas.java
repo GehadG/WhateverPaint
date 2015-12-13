@@ -59,7 +59,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
     public static ArrayList<Shapes> copyList = new ArrayList<Shapes>();
     public static Stack<ArrayList<Shapes>> undost = new Stack();
     public static Stack<ArrayList<Shapes>> redost = new Stack();
-
+    
     public Canvas() {
 
         setBackground(color.white);

@@ -12,13 +12,22 @@ import ToolsPanels.CustomButtonStyle;
 import ToolsPanels.EditBox;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import static java.awt.SystemColor.menu;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JFileChooser;
 import javax.swing.JMenu;
+import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicMenuBarUI;
 
 
@@ -74,6 +83,9 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         Edit = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -252,6 +264,28 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenu2.setText("Export as");
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem6.setText("PNG");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
+
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem7.setText("GIF");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem7);
+
+        jMenu1.add(jMenu2);
+
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem3.setText("Exit");
         jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -384,6 +418,32 @@ public class MainWindow extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         EditBox.redo.doClick();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        BufferedImage image= saveImage(canvas1);
+        JFileChooser file = new JFileChooser();
+        if(file.showOpenDialog(menu)==JFileChooser.APPROVE_OPTION){
+           try{ 
+               ImageIO.write(image, "PNG", file.getSelectedFile());
+            }
+           catch(Exception e){
+               e.printStackTrace();
+           }
+        }
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        BufferedImage image= saveImage(canvas1);
+        JFileChooser file = new JFileChooser();
+        if(file.showOpenDialog(menu)==JFileChooser.APPROVE_OPTION){
+           try{ 
+               ImageIO.write(image, "gif", file.getSelectedFile());
+            }
+           catch(Exception e){
+               e.printStackTrace();
+           }
+        }
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -424,11 +484,14 @@ public class MainWindow extends javax.swing.JFrame {
     private ToolsPanels.ColorStrip colorStrip1;
     private ToolsPanels.EditBox editBox1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private ToolsPanels.MainButtonGroup mainButtonGroup1;
@@ -442,4 +505,12 @@ public class MainWindow extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon256.png")));
     }
     
+    public BufferedImage saveImage(JPanel panel){
+        int w = panel.getWidth();
+        int h = panel.getHeight();
+        BufferedImage bi = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = bi.createGraphics();
+        panel.print(g2);
+        return bi;
+    }
 }
