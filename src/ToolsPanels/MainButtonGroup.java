@@ -172,12 +172,13 @@ public class MainButtonGroup extends javax.swing.JPanel {
     }//GEN-LAST:event_selectActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
-        ArrayList<Shapes> prevShapes2 = new ArrayList();
+
         Canvas.intersects.clear();
-        Canvas.setPrevShapes(prevShapes2);
+        Canvas.setPrevShapes(new ArrayList());
         cc.repaint();
-        EditBox.undo.setEnabled(false);
-        EditBox.redo.setEnabled(false);
+        Canvas.undost.push(Canvas.prevShapes);
+        //EditBox.undo.setEnabled(false);
+        //EditBox.redo.setEnabled(false);
     }//GEN-LAST:event_clearActionPerformed
 
     private void openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openActionPerformed
