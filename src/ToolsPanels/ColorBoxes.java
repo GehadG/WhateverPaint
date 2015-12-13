@@ -33,6 +33,7 @@ public class ColorBoxes extends javax.swing.JPanel {
         setBackground(new java.awt.Color(40, 40, 40));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/arrow486 (1).png"))); // NOI18N
+        jButton1.setToolTipText("Drawing Color");
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -56,6 +57,7 @@ public class ColorBoxes extends javax.swing.JPanel {
         });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/arrow486 (1).png"))); // NOI18N
+        jButton2.setToolTipText("Filling Color");
         jButton2.setContentAreaFilled(false);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

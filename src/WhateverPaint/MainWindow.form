@@ -330,6 +330,7 @@
           <Properties>
             <Property name="maximum" type="int" value="20"/>
             <Property name="minimum" type="int" value="1"/>
+            <Property name="toolTipText" type="java.lang.String" value="Size"/>
           </Properties>
           <Events>
             <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="strokerStateChanged"/>

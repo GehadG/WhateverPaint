@@ -151,6 +151,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         stroker.setMaximum(20);
         stroker.setMinimum(1);
+        stroker.setToolTipText("Size");
         stroker.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 strokerStateChanged(evt);

@@ -67,6 +67,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resources/arrow486 (1).png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Drawing Color"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
@@ -83,6 +84,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resources/arrow486 (1).png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Filling Color"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>

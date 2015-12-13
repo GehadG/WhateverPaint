@@ -44,9 +44,9 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="erase" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="fill" min="-2" pref="58" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="picker" min="-2" pref="59" max="-2" attributes="0"/>
@@ -62,14 +62,14 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="fill" max="32767" attributes="0"/>
-                  <Component id="picker" pref="66" max="32767" attributes="0"/>
+                  <Component id="picker" pref="42" max="32767" attributes="0"/>
                   <Component id="erase" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="redo" pref="69" max="32767" attributes="0"/>
+                  <Component id="redo" pref="42" max="32767" attributes="0"/>
                   <Component id="resize" alignment="0" max="32767" attributes="0"/>
-                  <Component id="move" pref="69" max="32767" attributes="0"/>
+                  <Component id="move" max="32767" attributes="0"/>
                   <Component id="undo" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
