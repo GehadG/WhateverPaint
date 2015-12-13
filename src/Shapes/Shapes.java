@@ -24,7 +24,7 @@ import javax.swing.JComponent;
  *
  * @author Gehad
  */
-public abstract class Shapes extends JComponent {
+public abstract class Shapes extends JComponent implements Cloneable {
 
     private int xPos;
     private int yPos;
@@ -154,5 +154,8 @@ public abstract class Shapes extends JComponent {
     @Override
     public String toString() {
         return getClass().toString();
+    }
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
     }
 }

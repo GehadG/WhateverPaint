@@ -41,7 +41,7 @@ import java.util.Stack;
  *
  * @author Gehad
  */
-public class Canvas extends JPanel implements MouseListener, MouseMotionListener, KeyListener {
+public class Canvas extends JPanel implements MouseListener, MouseMotionListener, KeyListener,Cloneable {
 
     private static Shapes s = new FreeHand();
     public static boolean whichColor = false;
@@ -163,7 +163,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+try {
         if (flag && !(s instanceof Selector) && !(s instanceof Mover) && !(s instanceof Resizer) && !(s instanceof Filler) && !(s instanceof Picker)) {
             prevShapes.add(s);
 
@@ -173,10 +173,16 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         }
         ArrayList<Shapes> copyList = new ArrayList<Shapes>();
         for (int i = 0; i < prevShapes.size(); i++) {
-            copyList.add(prevShapes.get(i));
+            
+                copyList.add((Shapes) prevShapes.get(i).clone());
         }
         undost.push(copyList);
         System.out.println(undost);
+} catch (CloneNotSupportedException ex) {
+                Logger.getLogger(Canvas.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        
     }
 
     @Override
